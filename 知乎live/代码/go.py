@@ -5,6 +5,10 @@ import requests;
 import sys;
 import json;
 import logging;
+import datetime;
+import urllib;
+import urllib2;
+from lxml import etree
 
 ZHIHU_URL 				=	"https://www.zhihu.com"
 UESR_NAME 				=	"17710667921"
@@ -13,8 +17,10 @@ HEADER	  				=	{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/
 CHROME_DRIVER_PATH 		=	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
 PHANTOMJS_DRIVER_PATH	=	"C:\\Program Files (x86)\\phantomjs\\phantomjs.exe";
 COOKIE_SAVE_PATH		=	"./cookie.txt"
+VERIFY_CODE_DIR			=	"./Verofy_code/"
 LOG_FORMAT				=	"[%(asctime)s] [%(levelname)-7s] - %(message)s"
 LOGIN_STATUS			=	False;
+TRY_TIMES				=	2;
 # BROWER_CHROME			= 	webdriver.Chrome(CHROME_DRIVER_PATH);
 # BROWER_PHANTOMJS		=	webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 
@@ -60,6 +66,44 @@ def getElement(driver, xpath):
 	except Exception as e:
 		return None;
 
+def download(url,dir,name=None):
+
+    if name == None:
+        defaultName = datetime.datetime.now().strftime('%H:%M:%S');
+    else:
+        defaultName = name;
+
+    if os.path.exists(dir):
+        pass
+    else:
+        os.mkdir(dir);
+    path = os.path.join(dir, defaultName); 
+
+    urllib.urlretrieve(url, path);
+
+
+def curl(url):
+
+    request = urllib2.Request(url, headers=HEADER);
+    times = TRY_TIMES
+    while times > 0:
+
+        try:
+            html=  urllib2.urlopen(request).read();
+            # host = urllib2.urlparse.urlparse(self.url).netloc.split('.');
+            break;
+        except urllib2.URLError as e:
+            L.error(TRY_TIMES,'Download error:',e);
+            if hasattr(e,'code') and  600 > e.code >= 320:
+                print("lalalal");
+            html = None;
+            times = times - 1;
+    return html;
+
+
+################  ------------------------------------------------------################################
+
+
 class zhihulive:
 
 	def __init__(self, live_id, save_path):
@@ -92,18 +136,21 @@ class zhihulive:
 				if(ret == False):
 					self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 				else:
-					self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
+					# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
+					
+					self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 					step = 5;
 
 			else:
 				getattr(self, step_function)()
 
-			if(step >= 5):
+			if(step >= 6):
 				break;
 			time.sleep(1);
 
 	#cookie load...
 	def step1(self):
+		L.info("step1 start!");
 		self.cookie = json_read(COOKIE_SAVE_PATH);
 		if(self.cookie != False):
 			L.info("cookies load successfully!");
@@ -120,6 +167,7 @@ class zhihulive:
 			return False;
 
 	def step2(self):
+		L.info("step2 start!");
 		self.driver.get(ZHIHU_URL);
 		L.info("titile is %s", self.driver.title);
 
@@ -127,6 +175,7 @@ class zhihulive:
 		bt_login.click();
 
 	def step3(self):
+		L.info("step3 start!");
 		input_username = self.driver.find_element_by_xpath("//input[@name='username']");
 		input_password = self.driver.find_element_by_xpath("//input[@name='password']");
 
@@ -135,28 +184,102 @@ class zhihulive:
 
 
 	def step4(self):
+		L.info("step4 start!");
 		bt_submit = self.driver.find_element_by_xpath("//button[@type='submit']");
-		bt_submit.click();
 		verify_code_english = getElement(self.driver, "//img[@class='Captcha-englishImg']");
 		verify_code_chinese = getElement(self.driver, "//img[@class='Captcha-chineseImg']");
 		if(verify_code_chinese != None or verify_code_english != None):
 			if(verify_code_english != None):
-				print verify_code_english.get_attribute("src");
+				vcode = verify_code_english.get_attribute("src");
 			elif(verify_code_chinese != None):
-				print verify_code_chinese.get_attribute("src");
+				vcode = verify_code_chinese.get_attribute("src");
 			else:
 				pass;
-			time.sleep(5);
 
+			if(vcode == "data:image/jpg;base64,null"):
+				L.info("how lucky no verify code!");
+			else:
+				count = 5;
+				while(count > 0):
+					time.sleep(1);
+					count = count - 1;
+					L.info("%ds left to fill in the verify code befor login" % count);
 
+		bt_submit.click();
+
+		if(self.checkIfLoginSuccess):
+			L.info("Login successfully!");
+		else:
+			L.error("Login failed!");
 
 	def step5(self):
-		print "step555";
+		L.info("step5 start!");
+		self.cookie = dict();
+		for item in self.driver.get_cookies():
+			self.cookie[item['name']] = item['value'];
+
+		self.s.cookies.update(self.cookie);
+		if(self.checkIfLoginSuccess):
+			L.info("cookies update successfully");
+			if(json_save(self.cookie,COOKIE_SAVE_PATH)):
+				L.info("cookies saved successfully!");
+			else:
+				L.info("cookies saved failed!");
+
+		else:
+			L.error("cookies update failed!");
+
+
+	def step6(self):
+		L.info("step6 start!");
+
+		live_url 		= "https://www.zhihu.com/lives/%d" % self.live_id;
+		live_speaker 	= "https://api.zhihu.com/lives/%d/messages/speaker" % self.live_id;
+		live_message 	= "https://api.zhihu.com/lives/%d/messages" % self.live_id;
+
+		title = ""
+		score = ""
+		L.info(live_url);
+
+		self.driver.get(live_url);
+		time.sleep(3);
+		entrance_html	= self.driver.page_source;
+		# print entrance_html;
+		if(entrance_html != None):
+			potral_page = etree.HTML(entrance_html.decode('utf-8'));
+		else:
+			L.error("can't get the html of the entrance URL!");
+
+		node_title = potral_page.xpath("//div[@class='LivePageHeader-line-SzR2 LivePageHeader-title-1RQL']");	
+		node_score = potral_page.xpath("//span[@class='LiveContentInfo-scoreNum-Qa-K']");
+		print node_title;
+		print node_score;
+		if(len(node_title) ==  1):
+			title == node_title[0].text;
+		else:
+			title == "NO TITILE GET!"
+
+		if(len(node_score) ==  1):
+			score == node_score[0].text;
+		else:
+			score == "NO TITILE GET!"
+
+		print title;
+		print score;
+
+
+
+
+		# if os.path.exists(self.save_path):
+	 #        pass
+	 #    else:
+	 #        os.mkdir(self.save_path);
+	 #    path = os.path.join(dir, defaultName); 
 
 
 
 
 
 
-a = zhihulive(748872049438490624, "../download/");
+a = zhihulive(776524790524542976, "../download/");
 a.go();
