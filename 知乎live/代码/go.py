@@ -18,8 +18,8 @@ sys.setdefaultencoding('utf-8')
 
 
 ZHIHU_URL 				=	"https://www.zhihu.com"
-UESR_NAME 				=	"17710667921"
-PASSWORD  				=	"kc24118242"
+UESR_NAME 				=	"jushou2018@163.com"
+PASSWORD  				=	"20140619fgt"
 HEADER	  				=	{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'};
 CHROME_DRIVER_PATH 		=	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
 PHANTOMJS_DRIVER_PATH	=	"C:\\Program Files (x86)\\phantomjs\\phantomjs.exe";
@@ -112,7 +112,7 @@ def curl(url):
     return html;
 
 
-################  ------------------------------------------------------################################
+######################## -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- ################################
 
 
 class zhihulive:
@@ -125,7 +125,7 @@ class zhihulive:
 		self.cookie 	=	False;				#cookie dick
 		self.check_url	=	"https://api.zhihu.com/lives/776524790524542976/messages";	#url to test if login
 		self.driver 	=	None;				# explorer driver
-		self.confpaser    =	ConfigParser.ConfigParser();
+		self.confpaser  =	ConfigParser.ConfigParser();
 		self.conf_path 	= 	"./config.ini"
 
 
@@ -333,8 +333,8 @@ class zhihulive:
 		after_id 	= "after_id"
 
 		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
-
 		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
+
 		r = self.s.get(total_api, headers = HEADER);
 
 		if r.status_code == 200:
@@ -373,6 +373,7 @@ class zhihulive:
 				is_first_curl = False;
 				count = 0;
 				data_json_text 	= 	r.text;
+				# print data_json_text;
 				data_obj		=	json.loads(data_json_text);
 				
 				for k,v in data_obj.items():
@@ -422,7 +423,18 @@ class zhihulive:
 										pass;
 
 								elif ty == "image":
-									pass;
+									if item.has_key('image') and item['image'].has_key('full'):
+										image_url 	= 	item['image']['full']['url'];
+										image_name 	=	"%d.jpg" % item_id; 
+										if not os.path.exists(os.path.join(local_dir, image_name)):
+											if download(image_url, local_dir, image_name) == True:
+												L.info("[+++][image] %d download successfully count :%d" % (item_id,item_count_done));
+											else:
+												L.error("[xxx][image]download failed %s" % image_url);
+										else:
+											L.info("[---][image]%s 已经存在 跳过" % image_url);
+									else:
+										pass;
 								else:
 									L.error("item id:%d 为未知类型消息 type:%s" % (item_id,ty));
 							else:
@@ -432,11 +444,11 @@ class zhihulive:
 								xname 	= item['sender']['member']['name'];
 								xdesc	= item['sender']['member']['headline'];
 
-								author_name = "author.txt";
+								author_name = "author_type.txt";
 								author_path =  os.path.join(local_dir,author_name);
 								if not os.path.exists(author_path):
 									with open(author_path,"w") as f:
-										f.write("%s - %s" % (xname, xdesc));
+										f.write("%s - %s [%s]" % (xname, xdesc, ty));
 									L.info("[+++][author]%d - %d 作者信息 保存成功" % (item_count_done, item_id));
 								else:
 									L.info("[---][author]%d - %d作者信息 已经存在 跳过" % (item_count_done, item_id));
@@ -455,5 +467,20 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 
 
-a = zhihulive(944587975217102848, "../download/");
-a.go();
+a = zhihulive(918804926988161024, "../download/");
+
+driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+driver.get("https://www.zhihu.com/market/lives/unlimited/choiceness");
+a = driver.execute_script("return window.__APP_STATE__");
+url = "https://api.zhihu.com/unlimited/subscriptions/1/resources?limit=10&offset=20&tag_id=301"
+total_size = dict();
+for z in a['prefetch']['LiveUnlimited']['result'][1]['value']:
+	b = dict();
+
+	b['name'] 	= z['token'];
+	b['count'] 	= z['resource_count'];
+	b['c_id'] 	= z['id'];
+	total_size[b['c_id']] = b;
+print str(total_size);
+driver.close();
+
