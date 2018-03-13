@@ -11,6 +11,7 @@ import urllib;
 import urllib2;
 import ConfigParser
 from lxml import etree
+
 reload(sys) 
 sys.setdefaultencoding('utf-8')
 
@@ -79,13 +80,17 @@ def download(url,dir,name=None):
     else:
         defaultName = name;
 
-    if os.path.exists(dir):
-        pass
-    else:
-        os.mkdir(dir);
-    path = os.path.join(dir, defaultName); 
-
-    urllib.urlretrieve(url, path);
+	try:
+		if os.path.exists(dir):
+			pass;
+		else:
+			os.mkdirs(dir);
+		path = os.path.join(dir, defaultName); 
+		urllib.urlretrieve(url, path);
+		return True;
+	except Exception as e:
+		print "error ";
+		return False;
 
 
 def curl(url):
@@ -115,12 +120,14 @@ class zhihulive:
 	def __init__(self, live_id, save_path):
 		self.live_id 	= 	live_id;			#this is target live id;
 		self.save_path 	= 	save_path			#this is target path to save live
+		self.target_dir = 	""
 		self.s 			=	requests.Session();	#session
 		self.cookie 	=	False;				#cookie dick
 		self.check_url	=	"https://api.zhihu.com/lives/776524790524542976/messages";	#url to test if login
 		self.driver 	=	None;				# explorer driver
 		self.confpaser    =	ConfigParser.ConfigParser();
 		self.conf_path 	= 	"./config.ini"
+
 
 
 		L.info("init success! live_id:[%s] save_path:[%s]" % (self.live_id,self.save_path));
@@ -176,6 +183,7 @@ class zhihulive:
 
 	def step2(self):
 		L.info("step2 start!");
+		self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 		self.driver.get(ZHIHU_URL);
 		L.info("titile is %s", self.driver.title);
 
@@ -231,6 +239,7 @@ class zhihulive:
 			L.info("cookies update successfully");
 			if(json_save(self.cookie,COOKIE_SAVE_PATH)):
 				L.info("cookies saved successfully!");
+				self.driver.close();
 			else:
 				L.info("cookies saved failed!");
 
@@ -295,6 +304,7 @@ class zhihulive:
 			self.confpaser.set('config',"score",score);
 			self.confpaser.set('config',"id",self.live_id);
 			self.confpaser.write(open("./record/%d.conf" % self.live_id,"w"));
+			L.info("配置文件写入成功！./record/%d.conf" % self.live);
 		else:
 			L.info("当前live的配置信息存在 读取配置文件... ./record/%d.conf" % self.live_id);
 			self.confpaser.read("./record/%d.conf" % self.live_id);
@@ -303,13 +313,13 @@ class zhihulive:
 
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
 		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
-		target_dir 		= os.path.join(self.save_path, live_dir_name);
+		self.target_dir 		= os.path.join(self.save_path, live_dir_name);
 
-		if os.path.exists(target_dir):
-			L.info("目录[%s]已经存在！" % (target_dir));
+		if os.path.exists(self.target_dir ):
+			L.info("目录[%s]已经存在！" % (self.target_dir ));
 		else:
-			os.makedirs(target_dir);
-			L.info("目录[%s]创建成功！" % (target_dir));	
+			os.makedirs(self.target_dir );
+			L.info("目录[%s]创建成功！" % (self.target_dir ));	
 
 		L.info("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (title, score,self.live_id, author));
 
@@ -319,8 +329,6 @@ class zhihulive:
 		way_go 		= "chronology";
 		limit 		= "limit";
 		after_id 	= "after_id"
-
-
 
 		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
 
@@ -359,9 +367,65 @@ class zhihulive:
 				count = 0;
 				data_json_text 	= 	r.text;
 				data_obj		=	json.loads(data_json_text);
+				
 				for k,v in data_obj.items():
 					if k == "data":
 						for item in data_obj['data']:
+
+							item_count_done = item_count_done +1;
+							item_id = int(item['id'].encode('utf-8'));
+
+							if item.has_key('type'):
+								ty = item['type'];
+								local_dir = os.path.join(self.target_dir, "%d_%d" % (item_count_done, item_id)) ;
+								if os.path.exists(local_dir):
+									pass;
+								else:
+									os.makedirs(local_dir);
+
+								# print ty;
+								if ty == "text":
+									pass;
+								elif ty == "reward":
+									pass
+								elif ty == "audio":
+
+									if item.has_key('audio') and item['audio'].has_key('url'):
+										audio_url = item['audio']['url'];
+										# local_local_path = os.path.join(local_dir, "%d.m4a" % item_id);
+										audio_name = "%d.m4a" % item_id
+										if not os.path.exists(os.path.join(local_dir, audio_name)):
+											if download(audio_url, local_dir, audio_name) == True:
+												L.info("[audio] %d download successfully count :%d" % (item_id,item_count_done));
+											else:
+												L.error("download failed %d" % item_id);
+										else:
+											L.info("[audio]%s 已经存在 跳过" % audio_name);
+									else:
+										pass;
+
+									if item.has_key("sender") and item['sender'].has_key("member"):
+										xname 	= item['sender']['member']['name'];
+										xdesc	= item['sender']['member']['headline'];
+
+										text_name = "author.txt";
+										text_path =  os.path.join(local_dir,text_name);
+										if not os.path.exists(text_path):
+											with open(text_path,"w") as f:
+												f.write("%s - %s" % (xname, xdesc));
+											L.info("[audio]%d作者信息 保存成功" % item_id);
+										else:
+											L.info("[audio]%d作者信息 已经存在 跳过" % item_id);
+									else:
+										L.info("[audio]%d作者信息 不存在" % item_id);
+
+
+								elif ty == "image":
+									pass;
+								else:
+									L.error("item id:%d 为未知类型消息 type:%s" % (item_id,ty));
+							else:
+								L.error("%d 没有type字段 无法判断消息类型！" % item_id);
 
 							last_item_id = int(item['id'].encode('utf-8'));
 							count = count + 1;
@@ -370,11 +434,10 @@ class zhihulive:
 					else:
 						# print "%s ==> %s" %(k,v);
 						pass;
-				L.info("本次总共抓取条数：%d 总计抓取条数：%d api 剩余套数：%d 计算剩余条数:%d" % (count,item_count_done,unload_count,total_count-item_count_done));
+				L.info("本次总共抓取条数：%-2d 总计抓取条数：%-4d 当前抓取之前的剩余条数(API)：%-4d 剩余抓取:%d" % (count,item_count_done,unload_count,total_count-item_count_done));
 			else:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 
-			item_count_done = item_count_done + count;
 
 
 
