@@ -32,7 +32,7 @@ TRY_TIMES				=	2;
 # BROWER_PHANTOMJS		=	webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 
 #log init
-logging.basicConfig(level = logging.INFO,format = LOG_FORMAT);
+logging.basicConfig(level = logging.ERROR,format = LOG_FORMAT);
 L = logging.getLogger(__name__)
 
 
@@ -304,7 +304,7 @@ class zhihulive:
 			self.confpaser.set('config',"score",score);
 			self.confpaser.set('config',"id",self.live_id);
 			self.confpaser.write(open("./record/%d.conf" % self.live_id,"w"));
-			L.info("配置文件写入成功！./record/%d.conf" % self.live);
+			L.info("配置文件写入成功！./record/%d.conf" % self.live_id);
 		else:
 			L.info("当前live的配置信息存在 读取配置文件... ./record/%d.conf" % self.live_id);
 			self.confpaser.read("./record/%d.conf" % self.live_id);
@@ -385,7 +385,17 @@ class zhihulive:
 
 								# print ty;
 								if ty == "text":
-									pass;
+									if item.has_key('text'):
+										text_name = "%s.txt" % item_id;
+										text_path = os.path.join(local_dir, text_name);
+										if not os.path.exists(text_path):
+											with open(text_path,"w") as f:
+												f.write("%s" % item['text']);
+											L.info("[+++][text]%d - %d 保存成功" % (item_count_done, item_id));
+										else:
+											L.info("[---][text]%d - %d文本信息 已经存在 跳过" % (item_count_done, item_id));
+									else:
+										L.error("%d - %d 没有text信息" % (item_count_done, item_id));
 								elif ty == "reward":
 									pass
 								elif ty == "audio":
@@ -396,29 +406,13 @@ class zhihulive:
 										audio_name = "%d.m4a" % item_id
 										if not os.path.exists(os.path.join(local_dir, audio_name)):
 											if download(audio_url, local_dir, audio_name) == True:
-												L.info("[audio] %d download successfully count :%d" % (item_id,item_count_done));
+												L.info("[+++][audio] %d download successfully count :%d" % (item_id,item_count_done));
 											else:
-												L.error("download failed %d" % item_id);
+												L.error("[xxx][audio]download failed %d" % item_id);
 										else:
-											L.info("[audio]%s 已经存在 跳过" % audio_name);
+											L.info("[---][audio]%s 已经存在 跳过" % audio_name);
 									else:
 										pass;
-
-									if item.has_key("sender") and item['sender'].has_key("member"):
-										xname 	= item['sender']['member']['name'];
-										xdesc	= item['sender']['member']['headline'];
-
-										text_name = "author.txt";
-										text_path =  os.path.join(local_dir,text_name);
-										if not os.path.exists(text_path):
-											with open(text_path,"w") as f:
-												f.write("%s - %s" % (xname, xdesc));
-											L.info("[audio]%d作者信息 保存成功" % item_id);
-										else:
-											L.info("[audio]%d作者信息 已经存在 跳过" % item_id);
-									else:
-										L.info("[audio]%d作者信息 不存在" % item_id);
-
 
 								elif ty == "image":
 									pass;
@@ -426,6 +420,21 @@ class zhihulive:
 									L.error("item id:%d 为未知类型消息 type:%s" % (item_id,ty));
 							else:
 								L.error("%d 没有type字段 无法判断消息类型！" % item_id);
+
+							if item.has_key("sender") and item['sender'].has_key("member"):
+								xname 	= item['sender']['member']['name'];
+								xdesc	= item['sender']['member']['headline'];
+
+								author_name = "author.txt";
+								author_path =  os.path.join(local_dir,author_name);
+								if not os.path.exists(author_path):
+									with open(author_path,"w") as f:
+										f.write("%s - %s" % (xname, xdesc));
+									L.info("[+++][author]%d - %d 作者信息 保存成功" % (item_count_done, item_id));
+								else:
+									L.info("[---][author]%d - %d作者信息 已经存在 跳过" % (item_count_done, item_id));
+							else:
+								L.info("[xxx][author]%d - %d作者信息 不存在" % (item_count_done, item_id));
 
 							last_item_id = int(item['id'].encode('utf-8'));
 							count = count + 1;
@@ -439,7 +448,5 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 
 
-
-
-a = zhihulive(776524790524542976, "../download/");
+a = zhihulive(780465889119064064, "../download/");
 a.go();
