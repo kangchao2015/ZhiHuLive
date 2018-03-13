@@ -12,10 +12,26 @@
   t (https://zhihu-beyond.zhimg.com/app.64a6e7411e7ffbf20f6e.js:1)
   ([INFO  - 2018-03-12T14:54:25.307Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
 [INFO  - 2018-03-12T14:59:25.309Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2018-03-12T14:58:46.748Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2018-03-12T14:58:38.077Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
- (https://zhihu-beyond.zhimg.com/app.64a6e7411e7ffbf20f6e.js:1)
-  (anonymous function) (https://zhihu-beyond.zhimg.com/app.64a6e7411e7ffbf20f6e.js:45)
-  t (https://zhihu-beyond.zhimg.com/app.64a6e7411e7ffbf20f6e.js:1)
-  (anonymous function) (https://zhihu-beyond.zhimg.com/ap[INFO  - 2018-03-12T14:53:02.297Z] SessionManagerReqHand - _cleanupWindowlessSessi[INFO  - 2018-03-12T14:54:54.118Z] SessionManagerReqHand [INFO  - 2018-03-12T14:58:02.297Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
-[INFO  - 2018-03-12T14:58:36.269Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:04:25.309Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:09:25.309Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:14:25.309Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:19:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:24:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:29:25.309Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:34:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:39:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:44:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:49:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:54:25.312Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:59:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:04:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:09:25.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:12:18.344Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:12:10.986Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:12:05.306Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T15:58:02.299Z] SessionManagerReqHand - _cleanupWindowlessSessi[INFO  - 2018-03-12T15:59:54.124Z] SessionManagerReqHand [INFO  - 2018-03-12T16:03:02.299Z] SessionManagerReqHand - _cleanupWindowlessSessi[INFO  - 2018-03-12T16:04:54.124Z] SessionManagerReqHand [INFO  - 2018-03-12T16:08:02.301Z] SessionManagerReqHand - _cleanupWindowlessSessi[INFO  - 2018-03-12T16:09:54.124Z] SessionManagerReqHand [INFO  - 2018-03-12T16:13:02.304Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:18:02.304Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:23:02.305Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:28:02.307Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:33:02.310Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-03-12T16:35:13.409Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW

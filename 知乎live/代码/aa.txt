@@ -1,0 +1,4 @@
+[a_new_section]
+a = b
+z = b
+

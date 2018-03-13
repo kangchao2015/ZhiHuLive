@@ -1,3 +1,4 @@
+# coding=utf-8
 from selenium import webdriver
 import time
 import os
@@ -8,7 +9,12 @@ import logging;
 import datetime;
 import urllib;
 import urllib2;
+import ConfigParser
 from lxml import etree
+reload(sys) 
+sys.setdefaultencoding('utf-8')
+
+
 
 ZHIHU_URL 				=	"https://www.zhihu.com"
 UESR_NAME 				=	"17710667921"
@@ -113,6 +119,8 @@ class zhihulive:
 		self.cookie 	=	False;				#cookie dick
 		self.check_url	=	"https://api.zhihu.com/lives/776524790524542976/messages";	#url to test if login
 		self.driver 	=	None;				# explorer driver
+		self.confpaser    =	ConfigParser.ConfigParser();
+		self.conf_path 	= 	"./config.ini"
 
 
 		L.info("init success! live_id:[%s] save_path:[%s]" % (self.live_id,self.save_path));
@@ -134,17 +142,17 @@ class zhihulive:
 			if(step == 1):
 				ret = getattr(self, step_function)();
 				if(ret == False):
-					self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+					# self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+					pass;
 				else:
 					# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 					
-					self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 					step = 5;
 
 			else:
 				getattr(self, step_function)()
 
-			if(step >= 6):
+			if(step >= 7):
 				break;
 			time.sleep(1);
 
@@ -234,50 +242,139 @@ class zhihulive:
 		L.info("step6 start!");
 
 		live_url 		= "https://www.zhihu.com/lives/%d" % self.live_id;
-		live_speaker 	= "https://api.zhihu.com/lives/%d/messages/speaker" % self.live_id;
-		live_message 	= "https://api.zhihu.com/lives/%d/messages" % self.live_id;
 
-		title = ""
-		score = ""
-		L.info(live_url);
+		title 	= "";
+		score 	= "";
+		author 	= "";
 
-		self.driver.get(live_url);
-		time.sleep(3);
-		entrance_html	= self.driver.page_source;
-		# print entrance_html;
-		if(entrance_html != None):
-			potral_page = etree.HTML(entrance_html.decode('utf-8'));
+		if(not os.path.exists("./record/%d.conf" % self.live_id)):
+
+			L.info(live_url);
+
+			self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+			self.driver.get(live_url);
+			L.info("等待页面加载... 7s");
+			time.sleep(7);
+			entrance_html	= self.driver.page_source;
+			# print entrance_html;
+			if(entrance_html != None):
+				potral_page = etree.HTML(entrance_html.decode('utf-8'));
+				L.info("portal page get successfully!");
+			else:	
+				L.error("can't get the html of the entrance URL!");
+
+			node_title 	= potral_page.xpath("//div[@class='LivePageHeader-line-SzR2 LivePageHeader-title-1RQL']");	
+			node_score 	= potral_page.xpath("//span[@class='LiveContentInfo-scoreNum-Qa-K']");
+			node_author = potral_page.xpath("//a[@class='LiveSpeakers-link-6dN8 UserLink-root-1ogW']");
+
+			if(len(node_title) ==  1):
+				title = node_title[0].text;
+			else:
+				title = "NO TITILE GET!"
+
+			if(len(node_score) ==  1):
+				score = node_score[0].text;
+			else:
+				score = "NO TITILE GET!"
+
+			if(len(node_author) ==  1):
+				author = node_author[0].text;
+			else:
+				author = "NO AUTHOR GET!"
+
+
+			self.driver.close();
+
+			if os.path.exists("./record/"):
+				pass;
+			else:
+				os.makedirs("./record/");
+
+			self.confpaser.add_section('config')
+			self.confpaser.set('config',"title",title);
+			self.confpaser.set('config',"score",score);
+			self.confpaser.set('config',"id",self.live_id);
+			self.confpaser.write(open("./record/%d.conf" % self.live_id,"w"));
 		else:
-			L.error("can't get the html of the entrance URL!");
+			L.info("当前live的配置信息存在 读取配置文件... ./record/%d.conf" % self.live_id);
+			self.confpaser.read("./record/%d.conf" % self.live_id);
+			title = self.confpaser.get("config", "title").decode('utf-8');
+			score = self.confpaser.get("config", "score");
 
-		node_title = potral_page.xpath("//div[@class='LivePageHeader-line-SzR2 LivePageHeader-title-1RQL']");	
-		node_score = potral_page.xpath("//span[@class='LiveContentInfo-scoreNum-Qa-K']");
-		print node_title;
-		print node_score;
-		if(len(node_title) ==  1):
-			title == node_title[0].text;
+		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
+		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
+		target_dir 		= os.path.join(self.save_path, live_dir_name);
+
+		if os.path.exists(target_dir):
+			L.info("目录[%s]已经存在！" % (target_dir));
 		else:
-			title == "NO TITILE GET!"
+			os.makedirs(target_dir);
+			L.info("目录[%s]创建成功！" % (target_dir));	
 
-		if(len(node_score) ==  1):
-			score == node_score[0].text;
+		L.info("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (title, score,self.live_id, author));
+
+
+	def step7(self):
+		L.info("step7 started");
+		way_go 		= "chronology";
+		limit 		= "limit";
+		after_id 	= "after_id"
+
+
+
+		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
+
+		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
+		r = self.s.get(total_api, headers = HEADER);
+		if r.status_code == 200:
+			data_json_text 	= 	r.text;
+			data_obj		=	json.loads(data_json_text);
+			for k,v in data_obj.items():
+				if k == "unload_count":
+					total_count = int(v);
+					L.info("live:%d 总计条数:%d" % (self.live_id, total_count));
+				elif k == "data":
+					for item in data_obj['data']:
+						first_id = int(item['id'].encode('utf-8'));
+						L.info("live:%d 的第一条记录id:%d" % (self.live_id, first_id));
+				else:
+					continue;
 		else:
-			score == "NO TITILE GET!"
+			L.error("抓取live总条数失败！live id :%d" % self.live_id);
 
-		print title;
-		print score;
+		item_count_done = 0;
+		is_first_curl = True
 
+		last_item_id = 0;
+		while item_count_done < total_count:
+			# L.info("last item id %d" % last_item_id);
+			if is_first_curl:
+				target_api = "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=30" % (self.live_id);
+			else:
+				target_api = "https://api.zhihu.com/lives/%d/messages?after_id=%d&chronology=asc&limit=30" % (self.live_id, last_item_id);
+			
+			r = self.s.get(target_api, headers = HEADER);
+			if r.status_code == 200:
+				is_first_curl = False;
+				count = 0;
+				data_json_text 	= 	r.text;
+				data_obj		=	json.loads(data_json_text);
+				for k,v in data_obj.items():
+					if k == "data":
+						for item in data_obj['data']:
 
+							last_item_id = int(item['id'].encode('utf-8'));
+							count = count + 1;
+					elif k == "unload_count" :
+						unload_count = v;
+					else:
+						# print "%s ==> %s" %(k,v);
+						pass;
+				L.info("本次总共抓取条数：%d 总计抓取条数：%d api 剩余套数：%d 计算剩余条数:%d" % (count,item_count_done,unload_count,total_count-item_count_done));
+			else:
+				L.error("目标抓取失败！live id :%d" % self.live_id);
 
-
-		# if os.path.exists(self.save_path):
-	 #        pass
-	 #    else:
-	 #        os.mkdir(self.save_path);
-	 #    path = os.path.join(dir, defaultName); 
-
-
-
+			item_count_done = item_count_done + count;
 
 
 
