@@ -32,7 +32,7 @@ TRY_TIMES				=	2;
 # BROWER_PHANTOMJS		=	webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 
 #log init
-logging.basicConfig(level = logging.ERROR,format = LOG_FORMAT);
+logging.basicConfig(level = logging.INFO,format = LOG_FORMAT);
 L = logging.getLogger(__name__)
 
 
@@ -311,6 +311,8 @@ class zhihulive:
 			title = self.confpaser.get("config", "title").decode('utf-8');
 			score = self.confpaser.get("config", "score");
 
+			self.title = title;
+
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
 		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
 		self.target_dir 		= os.path.join(self.save_path, live_dir_name);
@@ -334,6 +336,7 @@ class zhihulive:
 
 		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
 		r = self.s.get(total_api, headers = HEADER);
+
 		if r.status_code == 200:
 			data_json_text 	= 	r.text;
 			data_obj		=	json.loads(data_json_text);
@@ -348,7 +351,11 @@ class zhihulive:
 				else:
 					continue;
 		else:
-			L.error("抓取live总条数失败！live id :%d" % self.live_id);
+			if r.status_code == 403:
+				L.info("您没有权限收听《%s》" % self.title);
+			else:
+				L.error("抓取live总条数失败！live id :%d 状态码：%d" % (self.live_id, r.status_code));
+			return False;	
 
 		item_count_done = 0;
 		is_first_curl = True
@@ -448,5 +455,5 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 
 
-a = zhihulive(780465889119064064, "../download/");
+a = zhihulive(944587975217102848, "../download/");
 a.go();
