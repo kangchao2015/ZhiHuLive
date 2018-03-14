@@ -32,7 +32,7 @@ TRY_TIMES				=	2;
 # BROWER_PHANTOMJS		=	webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 
 #log init
-logging.basicConfig(level = logging.INFO,format = LOG_FORMAT);
+logging.basicConfig(level = logging.WARNING,format = LOG_FORMAT);
 L = logging.getLogger(__name__)
 
 
@@ -106,8 +106,8 @@ def curl(url):
         except urllib2.URLError as e:
             L.error(TRY_TIMES,'Download error:',e);
             if hasattr(e,'code') and  600 > e.code >= 320:
-                print("lalalal");
-            html = None;
+               print "curl error code:%d" % e.code;
+            html = e.code;
             times = times - 1;
     return html;
 
@@ -311,7 +311,7 @@ class zhihulive:
 			title = self.confpaser.get("config", "title").decode('utf-8');
 			score = self.confpaser.get("config", "score");
 
-			self.title = title;
+		self.title = title;
 
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
 		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
@@ -359,7 +359,9 @@ class zhihulive:
 
 		item_count_done = 0;
 		is_first_curl = True
-
+		
+		L.warning("开始抓取：%d" % self.live_id);
+		
 		last_item_id = 0;
 		while item_count_done < total_count:
 			# L.info("last item id %d" % last_item_id);
@@ -367,7 +369,7 @@ class zhihulive:
 				target_api = "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=30" % (self.live_id);
 			else:
 				target_api = "https://api.zhihu.com/lives/%d/messages?after_id=%d&chronology=asc&limit=30" % (self.live_id, last_item_id);
-			
+
 			r = self.s.get(target_api, headers = HEADER);
 			if r.status_code == 200:
 				is_first_curl = False;
@@ -453,7 +455,7 @@ class zhihulive:
 								else:
 									L.info("[---][author]%d - %d作者信息 已经存在 跳过" % (item_count_done, item_id));
 							else:
-								L.info("[xxx][author]%d - %d作者信息 不存在" % (item_count_done, item_id));
+								L.error("[xxx][author]%d - %d作者信息 不存在" % (item_count_done, item_id));
 
 							last_item_id = int(item['id'].encode('utf-8'));
 							count = count + 1;
@@ -465,15 +467,20 @@ class zhihulive:
 				L.info("本次总共抓取条数：%-2d 总计抓取条数：%-4d 当前抓取之前的剩余条数(API)：%-4d 剩余抓取:%d" % (count,item_count_done,unload_count,total_count-item_count_done));
 			else:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
+			L.warning("抓取《%s》抓取%d/%d " % (self.title, item_count_done, total_count));
 
-
-a = zhihulive(918804926988161024, "../download/");
+# a = zhihulive(918804926988161024, "../download/");
+# a.go();
 
 driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 driver.get("https://www.zhihu.com/market/lives/unlimited/choiceness");
+time.sleep(1);
 a = driver.execute_script("return window.__APP_STATE__");
-url = "https://api.zhihu.com/unlimited/subscriptions/1/resources?limit=10&offset=20&tag_id=301"
-total_size = dict();
+time.sleep(2);
+driver.close();
+
+total_size  = dict();
+statics 	= dict();
 for z in a['prefetch']['LiveUnlimited']['result'][1]['value']:
 	b = dict();
 
@@ -481,6 +488,49 @@ for z in a['prefetch']['LiveUnlimited']['result'][1]['value']:
 	b['count'] 	= z['resource_count'];
 	b['c_id'] 	= z['id'];
 	total_size[b['c_id']] = b;
-print str(total_size);
-driver.close();
+
+
+
+all_total = 0;				#lives count
+cat_offset_cat_count = 0;	#lives category count
+for k,v in total_size.items():
+	cat_id 		= int(v['c_id'].encode('utf-8'));
+	cat_name 	= v['name'].encode('utf-8');
+	cat_count 	= v['count'];
+
+	dirctory 	= os.path.join("../download/", cat_name);
+	if os.path.exists(dirctory):
+		pass;
+	else:
+		os.makedirs(dirctory);
+
+	size = 20;		#caount per curl
+	offset = 0;		#url offset parm
+	cur_cat_count = 0;	#total cat count
+	while offset < cat_count-2 :
+		
+		current_time_curl_count = 0;  # current cur count
+		catgory_url = 	"https://api.zhihu.com/unlimited/subscriptions/1/resources?limit=%d&offset=%d&tag_id=%d" % (size, offset, cat_id);
+
+		target_json = 	curl(catgory_url);
+		target_obj	=	json.loads(target_json);	
+
+		for item in target_obj['data']:
+			current_time_curl_count = current_time_curl_count + 1;
+			all_total		= all_total + 1;
+			cur_cat_count 	= cur_cat_count + 1;
+			# print item['item']['id'];
+			live_id = int(item['item']['id'].encode("utf-8"));
+			live = zhihulive(live_id, dirctory);
+			live.go();
+
+
+		offset 	= offset + current_time_curl_count;
+		L.info("single curl:[id:%d][%d/%d]current_time_curl_count:%d" % (cat_id,offset, cat_count,current_time_curl_count));
+
+	cat_offset_cat_count += 1;
+	L.warning("%12s 类[%d][%2d]的 live 抓取/总计：%d/%d场" % (cat_name,cat_id,cat_offset_cat_count,offset,cat_count));
+
+
+L.warning("所有live总计 %d 类 %d 场" % (cat_offset_cat_count,all_total));
 
