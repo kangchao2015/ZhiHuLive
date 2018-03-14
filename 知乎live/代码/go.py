@@ -376,27 +376,19 @@ class zhihulive:
 				is_first_curl = False;
 				count = 0;
 				data_json_text 	= 	r.text;
-				# print data_json_text;
 				data_obj		=	json.loads(data_json_text);
-				
+
 				for k,v in data_obj.items():
 					if k == "data":
 						for item in data_obj['data']:
 
 							item_count_done = item_count_done +1;
-							item_id = int(item['id'].encode('utf-8'));
-
-							if item.has_key("sender") and item["sender"].has_key("role"):
-								if item["sender"]["role"] == "speaker":
-									author_type = 1;
-								elif item["sender"]["role"] == "audience":
-									author_type = 0;
-								else:
-									author_type = 9;
+							item_id 		= int(item['id'].encode('utf-8'));
+							role 			= item["sender"]["role"];
 
 							if item.has_key('type'):
 								ty = item['type'];
-								local_dir = os.path.join(self.target_dir, "%d_%d_%d" % (item_count_done, item_id, author_type)) ;
+								local_dir = os.path.join(self.target_dir, "%d_%d_%s" % (item_count_done, item_id, role)) ;
 								if os.path.exists(local_dir):
 									pass;
 								else:
@@ -415,8 +407,6 @@ class zhihulive:
 											L.info("[---][text]%d - %d文本信息 已经存在 跳过" % (item_count_done, item_id));
 									else:
 										L.error("%d - %d 没有text信息" % (item_count_done, item_id));
-								elif ty == "reward":
-									pass
 								elif ty == "audio":
 
 									if item.has_key('audio') and item['audio'].has_key('url'):
@@ -446,6 +436,41 @@ class zhihulive:
 											L.info("[---][image]%s 已经存在 跳过" % image_url);
 									else:
 										pass;
+								elif ty == "multiimage":
+									if item.has_key("multiimage"):
+										pos = 0;
+										for pic in item["multiimage"]:
+											pos += 1;
+											pic_name	=	"%d.jpg" % pos; 
+											pic_url 	=	pic["full"]["url"];
+											if not os.path.exists(os.path.join(local_dir, pic_name)):
+												if download(pic_url, local_dir, pic_name) == True:
+													L.info("[+++][mpic] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
+												else:
+													L.error("[xxx][mpic]download failed %s" % pic_url);
+											else:
+												L.info("[---][mpic]%s 已经存在 跳过" % pic_url);
+
+									else:
+										pass;
+								elif ty == "video":
+									if item.has_key("video") and item["video"].has_key("playlist"):
+										pos = 0;
+										for vd in item["video"]["playlist"]:
+											pos += 1;
+											video_name = "%d.mp4" % pos;
+											video_url  = vd["url"];
+											if not os.path.exists(os.path.join(local_dir, video_name)):
+												if download(video_url, local_dir, video_name) == True:
+													L.info("[+++][video] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
+												else:
+													L.error("[xxx][video]download failed %s" % image_url);
+											else:
+												L.info("[---][video]%s 已经存在 跳过" % image_url);
+									else:
+										pass;
+								elif ty == "reward":
+									pass;
 								else:
 									L.error("item id:%d 为未知类型消息 type:%s" % (item_id,ty));
 							else:
@@ -478,8 +503,8 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
 
-a = zhihulive(918804926988161024, "../download/");
-a.go();
+# a = zhihulive(906513820179128320, "../download/");
+# a.go();
 
 driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 driver.get("https://www.zhihu.com/market/lives/unlimited/choiceness");
@@ -530,7 +555,7 @@ for k,v in total_size.items():
 			cur_cat_count 	= cur_cat_count + 1;
 			live_id = int(item['item']['id'].encode("utf-8"));
 			live = zhihulive(live_id, dirctory);
-			# live.go();
+			live.go();
 
 
 		offset 	= offset + current_time_curl_count;
