@@ -33,7 +33,9 @@ TRY_TIMES				=	2;
 
 #log init
 logging.basicConfig(level = logging.WARNING,format = LOG_FORMAT);
-L = logging.getLogger(__name__)
+handler = logging.FileHandler("log.txt")
+L = logging.getLogger(__name__);
+L.addHandler(handler)
 
 
 def json_save(obj, path):
@@ -156,7 +158,12 @@ class zhihulive:
 					# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 					
 					step = 5;
-
+			elif(step == 6):
+				if(getattr(self, step_function)()):
+					pass;
+				else:
+					L.error("live:%d抓取失败！" % self.live_id);
+					return; 
 			else:
 				getattr(self, step_function)()
 
@@ -188,7 +195,7 @@ class zhihulive:
 		self.driver.get(ZHIHU_URL);
 		L.info("titile is %s", self.driver.title);
 
-		bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='93']");
+		bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='94']");
 		bt_login.click();
 
 	def step3(self):
@@ -321,11 +328,15 @@ class zhihulive:
 		if os.path.exists(self.target_dir ):
 			L.info("目录[%s]已经存在！" % (self.target_dir ));
 		else:
-			os.makedirs(self.target_dir );
-			L.info("目录[%s]创建成功！" % (self.target_dir ));	
+			try:
+				os.makedirs(self.target_dir );
+				L.info("目录[%s]创建成功！" % (self.target_dir ));	
+			except Exception as e:
+				L.error("目录[%s]创建失败！" % (self.target_dir ));
+				return False;
 
 		L.info("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (title, score,self.live_id, author));
-
+		return True;
 
 	def step7(self):
 		L.info("step7 started");
@@ -376,6 +387,7 @@ class zhihulive:
 				is_first_curl = False;
 				count = 0;
 				data_json_text 	= 	r.text;
+				# print r.text;
 				data_obj		=	json.loads(data_json_text);
 
 				for k,v in data_obj.items():
@@ -471,6 +483,20 @@ class zhihulive:
 										pass;
 								elif ty == "reward":
 									pass;
+								elif ty == "file":
+									if item.has_key('file') and item['file'].has_key('url'):
+										file_url 	= 	item['file']['url'];
+										file_name 	=	item['file']['file_name'];
+										if not os.path.exists(os.path.join(local_dir, file_name)):
+											if download(file_url, local_dir, file_name) == True:
+												L.info("[+++][file] %d download successfully count :%d" % (item_id,item_count_done));
+											else:
+												L.error("[xxx][file]download failed %s" % image_url);
+										else:
+											L.info("[---][file]%s 已经存在 跳过" % image_url);
+										L.info(item_count_done);
+									else:
+										pass;
 								else:
 									L.error("item id:%d 为未知类型消息 type:%s" % (item_id,ty));
 							else:
@@ -503,7 +529,7 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
 
-# a = zhihulive(906513820179128320, "../download/");
+# a = zhihulive(848895994845343744, "../download/");
 # a.go();
 
 driver = webdriver.Chrome(CHROME_DRIVER_PATH);

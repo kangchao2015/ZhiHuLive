@@ -5,7 +5,7 @@ import urllib
 def download(url,dir,name=None):
 
     if name == None:
-        defaultName = datetime.datetime.now().strftime('%H:%M:%S');
+        defaultName = urllib2.urlparse.urlparse(url).path.split('/')[-1];
     else:
         defaultName = name;
 
