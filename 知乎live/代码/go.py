@@ -398,13 +398,14 @@ class zhihulive:
 							item_id 		= int(item['id'].encode('utf-8'));
 							role 			= item["sender"]["role"];
 
+							local_dir = os.path.join(self.target_dir, "%d_%d_%s" % (item_count_done, item_id, role)) ;
+							if os.path.exists(local_dir):
+								pass;
+							else:
+								os.makedirs(local_dir);
+							
 							if item.has_key('type'):
 								ty = item['type'];
-								local_dir = os.path.join(self.target_dir, "%d_%d_%s" % (item_count_done, item_id, role)) ;
-								if os.path.exists(local_dir):
-									pass;
-								else:
-									os.makedirs(local_dir);
 
 								# print ty;
 								if ty == "text":
@@ -529,7 +530,7 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
 
-# a = zhihulive(848895994845343744, "../download/");
+# a = zhihulive(824935246951751680, "../download/");
 # a.go();
 
 driver = webdriver.Chrome(CHROME_DRIVER_PATH);
