@@ -32,7 +32,7 @@ TRY_TIMES				=	2;
 # BROWER_PHANTOMJS		=	webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 
 #log init
-logging.basicConfig(level = logging.WARNING,format = LOG_FORMAT);
+logging.basicConfig(level = logging.INFO,format = LOG_FORMAT);
 handler = logging.FileHandler("log.txt")
 L = logging.getLogger(__name__);
 L.addHandler(handler)
@@ -530,67 +530,76 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
 
-a = zhihulive(875728924179570688, "../download/");
-a.go();
+# a = zhihulive(875728924179570688, "../download/");
+# a.go();
 
-# driver = webdriver.Chrome(CHROME_DRIVER_PATH);
-# driver.get("https://www.zhihu.com/market/lives/unlimited/choiceness");
-# time.sleep(1);
-# a = driver.execute_script("return window.__APP_STATE__");
-# time.sleep(2);
-# driver.close();
+total_info = "total_info.txt";
 
-# total_size  = dict();
-# statics 	= dict();
-# for z in a['prefetch']['LiveUnlimited']['result'][1]['value']:
-# 	b = dict();
-
-# 	b['name'] 	= z['token'];
-# 	b['count'] 	= z['resource_count'];
-# 	b['c_id'] 	= z['id'];
-# 	total_size[b['c_id']] = b;
+c= json_read(total_info);
+if c == False:
+	driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+	driver.get("https://www.zhihu.com/market/lives/unlimited/choiceness");
+	time.sleep(1);
+	a = driver.execute_script("return window.__APP_STATE__");
+	time.sleep(2);
+	driver.close();
+	json_save(a, total_info);
+	c = a;
+else:
+	pass;
 
 
+total_size  = dict();
+statics 	= dict();
+for z in c['prefetch']['LiveUnlimited']['result'][1]['value']:
+	b = dict();
 
-# all_total 				= 0;				#lives count
-# cat_offset_cat_count 	= 0;				#lives category count
-# for k,v in total_size.items():
-# 	cat_id 		= int(v['c_id'].encode('utf-8'));
-# 	cat_name 	= v['name'].encode('utf-8');
-# 	cat_count 	= v['count'];
+	b['name'] 	= z['token'];
+	b['count'] 	= z['resource_count'];
+	b['c_id'] 	= z['id'];
+	total_size[b['c_id']] = b;
 
-# 	dirctory 	= os.path.join("../download/", cat_name);
-# 	if os.path.exists(dirctory):
-# 		pass;
-# 	else:
-# 		os.makedirs(dirctory);
 
-# 	size = 20;			#caount per curl
-# 	offset = 0;			#url offset parm
-# 	cur_cat_count = 0;	#total cat count
-# 	while offset < cat_count - 2 :
+
+all_total1 				= 0;				#lives count
+all_total2 				= 0;				#lives count
+cat_count 			 	= 0;				#lives category count
+for k,v in total_size.items():
+	cat_id 		= int(v['c_id'].encode('utf-8'));
+	cat_name 	= v['name'].encode('utf-8');
+	cat_count2 	= v['count'];
+
+	# L.info("cat id:%d cat_name:%s cat_count:%d" %(cat_id, cat_name, cat_count));
+	all_total1 += cat_count2
+
+	size = 20;				#caount per curl
+	offset = 20 ;			#url offset parm
+	cat_list_count = 0;
+	while offset < cat_count2-2:
 		
-# 		current_time_curl_count = 0;  # current cur count
-# 		catgory_url = 	"https://api.zhihu.com/unlimited/subscriptions/1/resources?limit=%d&offset=%d&tag_id=%d" % (size, offset, cat_id);
+		catgory_url = 	"https://api.zhihu.com/unlimited/subscriptions/1/resources?limit=%d&offset=%d&tag_id=%d" % (size, offset, cat_id);
 
-# 		target_json = 	curl(catgory_url);
-# 		target_obj	=	json.loads(target_json);	
-
-# 		for item in target_obj['data']:
-# 			current_time_curl_count = current_time_curl_count + 1;
-# 			all_total		= all_total + 1;
-# 			cur_cat_count 	= cur_cat_count + 1;
-# 			live_id = int(item['item']['id'].encode("utf-8"));
-# 			live = zhihulive(live_id, dirctory);
-# 			live.go();
+		target_json = 	curl(catgory_url);
+		target_obj	=	json.loads(target_json);	
 
 
-# 		offset 	= offset + current_time_curl_count;
-# 		L.info("single curl:[id:%d][%d/%d]current_time_curl_count:%d" % (cat_id,offset, cat_count,current_time_curl_count));
+		cur_cat_count = 0;
+		for item in target_obj['data']:
+			all_total2			= all_total2 + 1;
+			cat_list_count 		= cat_list_count + 1;
+			cur_cat_count 		= cur_cat_count + 1;
+			live_id = int(item['item']['id'].encode("utf-8"));
+			# L.info(live_id);
 
-# 	cat_offset_cat_count += 1;
-# 	L.warning("%12s 类[%d][%2d]的 live 抓取/总计：%d/%d场" % (cat_name,cat_id,cat_offset_cat_count,offset,cat_count));
+		# is_end = target_obj['paging']['is_end'];
+		# if is_end == True:
+		# 	break;
+		
+		offset 	= offset + cur_cat_count;
+		print offset, cat_count,cat_list_count, cur_cat_count,cat_id
+	cat_count += 1;
+	# L.warning("%12s 类[%d][%2d]的 live 抓取/总计：%d/%d场" % (cat_name,cat_id,cat_offset_cat_count,offset,cat_count));
 
 
-# L.warning("所有live总计 %d 类 %d 场" % (cat_offset_cat_count,all_total));	
+L.warning("所有live总计 %d 类 %d#%d 场" % (cat_count,all_total1,all_total2));	
 
