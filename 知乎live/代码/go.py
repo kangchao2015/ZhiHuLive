@@ -364,7 +364,7 @@ class zhihulive:
 					continue;
 		else:
 			if r.status_code == 403:
-				L.info("您没有权限收听《%s》" % self.title);
+				L.warning("您没有权限收听《%s》" % self.title);
 			else:
 				L.error("抓取live总条数失败！live id :%d 状态码：%d" % (self.live_id, r.status_code));
 			return False;	
@@ -530,7 +530,7 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
 
-a = zhihulive(875728924179570688, "../download/");
+a = zhihulive(764863571526979584, "../download/");
 a.go();
 
 # driver = webdriver.Chrome(CHROME_DRIVER_PATH);
