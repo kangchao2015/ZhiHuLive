@@ -28,10 +28,11 @@ COOKIE_SAVE_PATH		=	"./cookie.txt"
 VERIFY_CODE_DIR			=	"./Verofy_code/"
 LOG_FORMAT				=	"[%(asctime)s] [%(levelname)-7s] - %(message)s"
 LOGIN_STATUS			=	False;
-TRY_TIMES				=	2;
+TRY_TIMES				=	5;
 # BROWER_CHROME			= 	webdriver.Chrome(CHROME_DRIVER_PATH);
 # BROWER_PHANTOMJS		=	webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 colums 		= 	[
+	["id"],
 	["seats","taken"],
 	["feedback_score"],
 	["fee", "original_price"],
@@ -42,9 +43,8 @@ colums 		= 	[
 	["description"],
 	["speaker", "member","name"],
 	["speaker", "member","headline"],
-	["speaker","description"],
-	["speaker","bio"]
-];
+	["speaker","description"]
+]
 #log init
 logging.basicConfig(level = logging.INFO,format = LOG_FORMAT);
 handler = logging.FileHandler("log_Err.txt")
@@ -122,432 +122,11 @@ def curl(url):
             # host = urllib2.urlparse.urlparse(self.url).netloc.split('.');
             break;
         except urllib2.URLError as e:
-            L.error(TRY_TIMES,'Download error:',e);
             if hasattr(e,'code') and  600 > e.code >= 320:
                print "curl error code:%d" % e.code;
-            html = e.code;
+            html = None;
             times = times - 1;
     return html;
-
-
-######################## -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- ################################
-
-
-class zhihulive:
-
-	def __init__(self, live_id, save_path):
-		self.live_id 	= 	live_id;			#this is target live id;
-		self.save_path 	= 	save_path			#this is target path to save live
-		self.target_dir = 	""
-		self.s 			=	requests.Session();	#session
-		self.cookie 	=	False;				#cookie dick
-		self.check_url	=	"https://api.zhihu.com/lives/776524790524542976/messages";	#url to test if login
-		self.driver 	=	None;				# explorer driver
-		self.confpaser  =	ConfigParser.ConfigParser();
-		self.conf_path 	= 	"./config.ini"
-
-
-
-		L.info("init success! live_id:[%s] save_path:[%s]" % (self.live_id,self.save_path));
-
-
-	def checkIfLoginSuccess(self):
-		r = self.s.get(self.check_url, headers = HEADER);
-		if r.status_code == 200:
-			return True;
-		else:
-			return False;
-		pass;
-
-	def go(self):
-		step = 0;
-		while True:
-			step = step + 1;
-			step_function = "step%d" % step;
-			if(step == 1):
-				ret = getattr(self, step_function)();
-				if(ret == False):
-					# self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
-					pass;
-				else:
-					# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
-					
-					step = 5;
-			elif(step == 6):
-				if(getattr(self, step_function)()):
-					pass;
-				else:
-					L.error("live:%d抓取失败！" % self.live_id);
-					return; 
-			else:
-				getattr(self, step_function)()
-
-			if(step >= 7):
-				break;
-			time.sleep(1);
-
-	#cookie load...
-	def step1(self):
-		L.info("step1 start!");
-		self.cookie = json_read(COOKIE_SAVE_PATH);
-		if(self.cookie != False):
-			L.info("cookies load successfully!");
-			self.s.cookies.update(self.cookie);
-		else:
-			L.info("no cookies file found! start to Login by username and password");
-			return False;
-
-		if(self.checkIfLoginSuccess()):
-			L.info("cookies status OK! ");
-			return True;
-		else:
-			L.info("cookies experier! start to Login by username and password");
-			return False;
-
-	def step2(self):
-		L.info("step2 start!");
-		self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
-		self.driver.get(ZHIHU_URL);
-		L.info("titile is %s", self.driver.title);
-
-		bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='94']");
-		bt_login.click();
-
-	def step3(self):
-		L.info("step3 start!");
-		input_username = self.driver.find_element_by_xpath("//input[@name='username']");
-		input_password = self.driver.find_element_by_xpath("//input[@name='password']");
-
-		input_username.send_keys(UESR_NAME);
-		input_password.send_keys(PASSWORD);
-
-
-	def step4(self):
-		L.info("step4 start!");
-		bt_submit = self.driver.find_element_by_xpath("//button[@type='submit']");
-		verify_code_english = getElement(self.driver, "//img[@class='Captcha-englishImg']");
-		verify_code_chinese = getElement(self.driver, "//img[@class='Captcha-chineseImg']");
-		if(verify_code_chinese != None or verify_code_english != None):
-			if(verify_code_english != None):
-				vcode = verify_code_english.get_attribute("src");
-			elif(verify_code_chinese != None):
-				vcode = verify_code_chinese.get_attribute("src");
-			else:
-				pass;
-
-			if(vcode == "data:image/jpg;base64,null"):
-				L.info("how lucky no verify code!");
-			else:
-				count = 5;
-				while(count > 0):
-					time.sleep(1);
-					count = count - 1;
-					L.info("%ds left to fill in the verify code befor login" % count);
-
-		bt_submit.click();
-
-		if(self.checkIfLoginSuccess):
-			L.info("Login successfully!");
-		else:
-			L.error("Login failed!");
-
-	def step5(self):
-		L.info("step5 start!");
-		self.cookie = dict();
-		for item in self.driver.get_cookies():
-			self.cookie[item['name']] = item['value'];
-
-		self.s.cookies.update(self.cookie);
-		if(self.checkIfLoginSuccess):
-			L.info("cookies update successfully");
-			if(json_save(self.cookie,COOKIE_SAVE_PATH)):
-				L.info("cookies saved successfully!");
-				self.driver.close();
-			else:
-				L.info("cookies saved failed!");
-
-		else:
-			L.error("cookies update failed!");
-
-
-	def step6(self):
-		L.info("step6 start!");
-
-		live_url 		= "https://www.zhihu.com/lives/%d" % self.live_id;
-
-		title 	= "";
-		score 	= "";
-		author 	= "";
-
-		if(not os.path.exists("./record/%d.conf" % self.live_id)):
-
-			L.info(live_url);
-
-			self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
-			self.driver.get(live_url);
-			L.info("等待页面加载... 7s");
-			time.sleep(7);
-			entrance_html	= self.driver.page_source;
-			# print entrance_html;
-			if(entrance_html != None):
-				potral_page = etree.HTML(entrance_html.decode('utf-8'));
-				L.info("portal page get successfully!");
-			else:	
-				L.error("can't get the html of the entrance URL!");
-
-			node_title 	= potral_page.xpath("//div[@class='LivePageHeader-line-SzR2 LivePageHeader-title-1RQL']");	
-			node_score 	= potral_page.xpath("//span[@class='LiveContentInfo-scoreNum-Qa-K']");
-			node_author = potral_page.xpath("//a[@class='LiveSpeakers-link-6dN8 UserLink-root-1ogW']");
-
-			if(len(node_title) ==  1):
-				title = node_title[0].text;
-			else:
-				title = "NO TITILE GET!"
-
-			if(len(node_score) ==  1):
-				score = node_score[0].text;
-			else:
-				score = "NO TITILE GET!"
-
-			if(len(node_author) ==  1):
-				author = node_author[0].text;
-			else:
-				author = "NO AUTHOR GET!"
-
-
-			self.driver.close();
-
-			if os.path.exists("./record/"):
-				pass;
-			else:
-				os.makedirs("./record/");
-
-			self.confpaser.add_section('config')
-			self.confpaser.set('config',"title",title);
-			self.confpaser.set('config',"score",score);
-			self.confpaser.set('config',"id",self.live_id);
-			self.confpaser.write(open("./record/%d.conf" % self.live_id,"w"));
-			L.info("配置文件写入成功！./record/%d.conf" % self.live_id);
-		else:
-			L.info("当前live的配置信息存在 读取配置文件... ./record/%d.conf" % self.live_id);
-			self.confpaser.read("./record/%d.conf" % self.live_id);
-			title = self.confpaser.get("config", "title").decode('utf-8');
-			score = self.confpaser.get("config", "score");
-
-		self.title = title;
-
-		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
-		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
-		self.target_dir 		= os.path.join(self.save_path, live_dir_name);
-
-		if os.path.exists(self.target_dir ):
-			L.info("目录[%s]已经存在！" % (self.target_dir ));
-		else:
-			try:
-				os.makedirs(self.target_dir );
-				L.info("目录[%s]创建成功！" % (self.target_dir ));	
-			except Exception as e:
-				L.error("目录[%s]创建失败！" % (self.target_dir ));
-				return False;
-
-		L.info("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (title, score,self.live_id, author));
-		return True;
-
-	def step7(self):
-		L.info("step7 started");
-		way_go 		= "chronology";
-		limit 		= "limit";
-		after_id 	= "after_id"
-
-		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
-		total_api	= "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=1" % self.live_id;
-
-		r = self.s.get(total_api, headers = HEADER);
-
-		if r.status_code == 200:
-			data_json_text 	= 	r.text;
-			data_obj		=	json.loads(data_json_text);
-			for k,v in data_obj.items():
-				if k == "unload_count":
-					total_count = int(v);
-					L.info("live:%d 总计条数:%d" % (self.live_id, total_count));
-				elif k == "data":
-					for item in data_obj['data']:
-						first_id = int(item['id'].encode('utf-8'));
-						L.info("live:%d 的第一条记录id:%d" % (self.live_id, first_id));
-				else:
-					continue;
-		else:
-			if r.status_code == 403:
-				L.info("您没有权限收听《%s》" % self.title);
-			else:
-				L.error("抓取live总条数失败！live id :%d 状态码：%d" % (self.live_id, r.status_code));
-			return False;	
-
-		item_count_done = 0;
-		is_first_curl = True
-		
-		L.warning("开始抓取：%d" % self.live_id);
-		
-		last_item_id = 0;
-		while item_count_done < total_count:
-			# L.info("last item id %d" % last_item_id);
-			if is_first_curl:
-				target_api = "https://api.zhihu.com/lives/%d/messages?chronology=asc&limit=30" % (self.live_id);
-			else:
-				target_api = "https://api.zhihu.com/lives/%d/messages?after_id=%d&chronology=asc&limit=30" % (self.live_id, last_item_id);
-
-			r = self.s.get(target_api, headers = HEADER);
-			if r.status_code == 200:
-				is_first_curl = False;
-				count = 0;
-				data_json_text 	= 	r.text;
-				# print r.text;
-				data_obj		=	json.loads(data_json_text);
-
-				for k,v in data_obj.items():
-					if k == "data":
-						for item in data_obj['data']:
-
-							item_count_done = item_count_done +1;
-							item_id 		= int(item['id'].encode('utf-8'));
-							role 			= item["sender"]["role"];
-
-							local_dir = os.path.join(self.target_dir, "%d_%d_%s" % (item_count_done, item_id, role)) ;
-							if os.path.exists(local_dir):
-								pass;
-							else:
-								os.makedirs(local_dir);
-							
-							if item.has_key('type'):
-								ty = item['type'];
-
-								# print ty;
-								if ty == "text":
-									if item.has_key('text'):
-										text_name = "%s.txt" % item_id;
-										text_path = os.path.join(local_dir, text_name);
-										if not os.path.exists(text_path):
-											with open(text_path,"w") as f:
-												f.write("%s" % item['text']);
-											L.info("[+++][text]%d - %d 保存成功" % (item_count_done, item_id));
-										else:
-											L.info("[---][text]%d - %d文本信息 已经存在 跳过" % (item_count_done, item_id));
-									else:
-										L.error("%d - %d 没有text信息" % (item_count_done, item_id));
-								elif ty == "audio":
-
-									if item.has_key('audio') and item['audio'].has_key('url'):
-										audio_url = item['audio']['url'];
-										# local_local_path = os.path.join(local_dir, "%d.m4a" % item_id);
-										audio_name = "%d.m4a" % item_id
-										if not os.path.exists(os.path.join(local_dir, audio_name)):
-											if download(audio_url, local_dir, audio_name) == True:
-												L.info("[+++][audio] %d download successfully count :%d" % (item_id,item_count_done));
-											else:
-												L.error("[xxx][audio]download failed %d" % item_id);
-										else:
-											L.info("[---][audio]%s 已经存在 跳过" % audio_name);
-									else:
-										pass;
-
-								elif ty == "image":
-									if item.has_key('image') and item['image'].has_key('full'):
-										image_url 	= 	item['image']['full']['url'];
-										image_name 	=	"%d.jpg" % item_id; 
-										if not os.path.exists(os.path.join(local_dir, image_name)):
-											if download(image_url, local_dir, image_name) == True:
-												L.info("[+++][image] %d download successfully count :%d" % (item_id,item_count_done));
-											else:
-												L.error("[xxx][image]download failed %s" % image_url);
-										else:
-											L.info("[---][image]%s 已经存在 跳过" % image_url);
-									else:
-										pass;
-								elif ty == "multiimage":
-									if item.has_key("multiimage"):
-										pos = 0;
-										for pic in item["multiimage"]:
-											pos += 1;
-											pic_name	=	"%d.jpg" % pos; 
-											pic_url 	=	pic["full"]["url"];
-											if not os.path.exists(os.path.join(local_dir, pic_name)):
-												if download(pic_url, local_dir, pic_name) == True:
-													L.info("[+++][mpic] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
-												else:
-													L.error("[xxx][mpic]download failed %s" % pic_url);
-											else:
-												L.info("[---][mpic]%s 已经存在 跳过" % pic_url);
-
-									else:
-										pass;
-								elif ty == "video":
-									if item.has_key("video") and item["video"].has_key("playlist"):
-										pos = 0;
-										for vd in item["video"]["playlist"]:
-											pos += 1;
-											video_name = "%d.mp4" % pos;
-											video_url  = vd["url"];
-											if not os.path.exists(os.path.join(local_dir, video_name)):
-												if download(video_url, local_dir, video_name) == True:
-													L.info("[+++][video] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
-												else:
-													L.error("[xxx][video]download failed %s" % image_url);
-											else:
-												L.info("[---][video]%s 已经存在 跳过" % image_url);
-									else:
-										pass;
-								elif ty == "reward":
-									pass;
-								elif ty == "file":
-									if item.has_key('file') and item['file'].has_key('url'):
-										file_url 	= 	item['file']['url'];
-										file_name 	=	item['file']['file_name'];
-										if not os.path.exists(os.path.join(local_dir, file_name)):
-											if download(file_url, local_dir, file_name) == True:
-												L.info("[+++][file] %d download successfully count :%d" % (item_id,item_count_done));
-											else:
-												L.error("[xxx][file]download failed %s" % image_url);
-										else:
-											L.info("[---][file]%s 已经存在 跳过" % image_url);
-										L.info(item_count_done);
-									else:
-										pass;
-								else:
-									L.error("item id:%d 为未知类型消息 type:%s" % (item_id,ty));
-							else:
-								L.error("%d 没有type字段 无法判断消息类型！" % item_id);
-
-							if item.has_key("sender") and item['sender'].has_key("member"):
-								xname 	= item['sender']['member']['name'];
-								xdesc	= item['sender']['member']['headline'];
-
-								author_name = "author_type.txt";
-								author_path =  os.path.join(local_dir,author_name);
-								if not os.path.exists(author_path):
-									with open(author_path,"w") as f:
-										f.write("%s - %s [%s]" % (xname, xdesc, ty));
-									L.info("[+++][author]%d - %d 作者信息 保存成功" % (item_count_done, item_id));
-								else:
-									L.info("[---][author]%d - %d作者信息 已经存在 跳过" % (item_count_done, item_id));
-							else:
-								L.error("[xxx][author]%d - %d作者信息 不存在" % (item_count_done, item_id));
-
-							last_item_id = int(item['id'].encode('utf-8'));
-							count = count + 1;
-					elif k == "unload_count" :
-						unload_count = v;
-					else:
-						# print "%s ==> %s" %(k,v);
-						pass;
-				L.info("本次总共抓取条数：%-2d 总计抓取条数：%-4d 当前抓取之前的剩余条数(API)：%-4d 剩余抓取:%d" % (count,item_count_done,unload_count,total_count-item_count_done));
-			else:
-				L.error("目标抓取失败！live id :%d" % self.live_id);
-			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
-
-# a = zhihulive(875728924179570688, "../download/");
-# a.go();
-
 
 def db_init():
 
@@ -572,7 +151,7 @@ def db_init():
 	else:
 		sql = 	"DROP TABLE IF EXISTS `live_info`;"
 		sql = 	sql +	"CREATE TABLE `live_info` ("
-		sql =   sql +	"`id` int(20) NOT NULL AUTO_INCREMENT,"
+		sql =   sql +	"`uuid` int(20) NOT NULL AUTO_INCREMENT,"
 
 		for i in colums:
 			c_name = "";
@@ -581,7 +160,7 @@ def db_init():
 			c_name = c_name[1:];
 			sql = sql + "`%s` varchar(65530) DEFAULT NULL," % c_name;
 		  
-		sql =	sql +	"PRIMARY KEY (`id`)"
+		sql =	sql +	"PRIMARY KEY (`uuid`)"
 		sql = 	sql + 	") ENGINE=MyISAM DEFAULT CHARSET=utf8;"
 		print sql;
 
@@ -600,10 +179,32 @@ def dealliveinfo(live_id):
 	if live_id == None:
 		L.error("live_id not given");
 	
-		#####处理具体的live信息
+	#check if record exist
+	sql = "select * from live_info where id = '%d'" % live_id;
+	curson2 = conn.cursor();
+	try:
+		curson2.execute(sql);
+		ret = curson2.fetchall();
+		# print len(ret);
+		if len(ret) > 0:
+			L.info("%d 已经存在 跳过!" % live_id);
+			return;
+		else:
+			pass;
+	except Exception as e:
+		print e;
+		L.error("%d 数据库查询失败" % live_id);
+	curson2.close()
+
+	#####处理具体的live信息
 	live_api_url = "https://api.zhihu.com/lives/%d" % live_id;
 	live_json	 = curl(live_api_url);
-	live_obj	 = json.loads(live_json);
+	if live_json == None:
+		L.error("%d curl获取json失败!" % live_id);
+		return;
+	else:
+		live_obj	 = json.loads(live_json);
+
 
 	colums_info = 	dict();
 
@@ -640,18 +241,26 @@ def dealliveinfo(live_id):
 	if conn == None:
 		return;
 
-	sql = "INSERT INTO `live_info` (`id`"
+
+
+	#if not exist insert into tabel live_info
+	sql = "INSERT INTO `live_info` (`uuid`"
 	
 	for i in colums_info.keys():
 		sql = sql + ", `%s`" % i;
 
 	sql = sql + ") VALUES (null"
 	for i,z in colums_info.items():
+
+		if isinstance(z, unicode):
+			z = z.replace("\'","_");
+
 		sql = sql +", '%s'" % z;
 	sql = sql +	");"
 
-
+	# print sql;
 	cursor1 = conn.cursor();
+	# print cursor1;
 	try:
 		cursor1.execute(sql);
 	except Exception as e:
@@ -660,7 +269,7 @@ def dealliveinfo(live_id):
 	cursor1.close();
 	L.info("%d end" % live_id);
 
-# dealliveinfo(875728924179570688);
+# dealliveinfo(792363358090326016);
 
 def get_cat_list():
 	total_info = "total_info.txt";
@@ -718,6 +327,7 @@ def get_cat_list():
 				cat_list_count 		= cat_list_count + 1;
 				cur_cat_count 		= cur_cat_count + 1;
 				live_id = int(item['item']['id'].encode("utf-8"));
+				# print live_id;
 				dealliveinfo(live_id);
 
 
