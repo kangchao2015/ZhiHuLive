@@ -192,10 +192,11 @@ class zhihulive:
 	def step2(self):
 		L.info("step2 start!");
 		self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+		# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 		self.driver.get(ZHIHU_URL);
 		L.info("titile is %s", self.driver.title);
 
-		bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='94']");
+		bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='93']");
 		bt_login.click();
 
 	def step3(self):
@@ -269,6 +270,7 @@ class zhihulive:
 			L.info(live_url);
 
 			self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+			# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 			self.driver.get(live_url);
 			L.info("等待页面加载... 7s");
 			time.sleep(7);
@@ -322,7 +324,7 @@ class zhihulive:
 		self.title = title;
 
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
-		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
+		live_dir_name 	= "%s_%s_%d" % (title[0:-1], score, self.live_id)
 		self.target_dir 		= os.path.join(self.save_path, live_dir_name);
 
 		if os.path.exists(self.target_dir ):
@@ -530,8 +532,17 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
 
-a = zhihulive(764863571526979584, "../download/");
-a.go();
+# a = zhihulive(955469864995979264, "../download/");
+# a.go();
+
+b = [773839432754151424];
+for z in b:
+	a = zhihulive(z, "../download/");
+	a.go();
+# a = zhihulive(823240334342492160, "../download/");
+# a.go();
+
+
 
 # driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 # driver.get("https://www.zhihu.com/market/lives/unlimited/choiceness");
