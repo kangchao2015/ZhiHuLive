@@ -152,6 +152,9 @@ class zhihulive:
 		self.audio_count=	0;
 		self.audio_file =	0;
 
+		self.author 	=	""
+		self.score 		=	0;
+		self.titile		=	"";
 
 
 		L.info("init success! live_id:[%s] save_path:[%s]" % (self.live_id,self.save_path));
@@ -281,49 +284,20 @@ class zhihulive:
 		L.info("step6 start!");
 
 		live_url 		= "https://www.zhihu.com/lives/%d" % self.live_id;
-
-		title 	= "";
-		score 	= "";
-		author 	= "";
-
 		if(not os.path.exists("./record/%d.conf" % self.live_id)):
 
-			L.info(live_url);
-
-			self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
-			# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
-			self.driver.get(live_url);
-			L.info("等待页面加载... 7s");
-			time.sleep(7);
-			entrance_html	= self.driver.page_source;
-			# print entrance_html;
-			if(entrance_html != None):
-				potral_page = etree.HTML(entrance_html.decode('utf-8'));
-				L.info("portal page get successfully!");
-			else:	
-				L.error("can't get the html of the entrance URL!");
-
-			node_title 	= potral_page.xpath("//div[@class='LivePageHeader-line-SzR2 LivePageHeader-title-1RQL']");	
-			node_score 	= potral_page.xpath("//span[@class='LiveContentInfo-scoreNum-Qa-K']");
-			node_author = potral_page.xpath("//a[@class='LiveSpeakers-link-6dN8 UserLink-root-1ogW']");
-
-			if(len(node_title) ==  1):
-				title = node_title[0].text;
+			live_api_url = "https://api.zhihu.com/lives/%d" % self.live_id;
+			live_json	 = curl(live_api_url);
+			if live_json == None:
+				L.error("%d curl获取json失败!" % live_id);
+				return;
 			else:
-				title = "NO TITILE GET!"
+				live_obj	 = json.loads(live_json);
 
-			if(len(node_score) ==  1):
-				score = node_score[0].text;
-			else:
-				score = "NO TITILE GET!"
+			self.author = live_obj['speaker']['member']['name'];
+			self.score = live_obj['feedback_score'];
+			self.title = live_obj['subject']
 
-			if(len(node_author) ==  1):
-				author = node_author[0].text;
-			else:
-				author = "NO AUTHOR GET!"
-
-
-			self.driver.close();
 
 			if os.path.exists("./record/"):
 				pass;
@@ -331,21 +305,22 @@ class zhihulive:
 				os.makedirs("./record/");
 
 			self.confpaser.add_section('config')
-			self.confpaser.set('config',"title",title);
-			self.confpaser.set('config',"score",score);
+			self.confpaser.set('config',"title",self.title);
+			self.confpaser.set('config',"author",self.author);
+			self.confpaser.set('config',"score",self.score);
 			self.confpaser.set('config',"id",self.live_id);
 			self.confpaser.write(open("./record/%d.conf" % self.live_id,"w"));
 			L.info("配置文件写入成功！./record/%d.conf" % self.live_id);
 		else:
 			L.info("当前live的配置信息存在 读取配置文件... ./record/%d.conf" % self.live_id);
 			self.confpaser.read("./record/%d.conf" % self.live_id);
-			title = self.confpaser.get("config", "title").decode('utf-8');
-			score = self.confpaser.get("config", "score");
+			self.title = self.confpaser.get("config", "title").decode('utf-8');
+			self.author = self.confpaser.get("config", "author").decode('utf-8');
+			self.score = self.confpaser.get("config", "score");
 
-		self.title = title;
 
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
-		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
+		live_dir_name 	= "%s_%s_%d" % (self.title, self.score, self.live_id)
 		self.target_dir 		= os.path.join(self.save_path, live_dir_name);
 
 		if os.path.exists(self.target_dir ):
@@ -358,7 +333,7 @@ class zhihulive:
 				L.error("目录[%s]创建失败！" % (self.target_dir ));
 				return False;
 
-		L.info("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (title, score,self.live_id, author));
+		L.info("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (self.title, self.score,self.live_id, self.author));
 		return True;
 
 	def step7(self):
@@ -466,14 +441,12 @@ class zhihulive:
 										self.audio = audio_init(audio_full_name);
 									elif self.audio_count % 30 == 0:
 										self.audio = audio_append(self.audio, audio_full_name);
-										audio_export(self.audio, self.target_dir , "%d_%d_%d" % (self.live_id, self.audio_file, self.audio_count) , "wav")
+
+										audio_export(self.audio, self.target_dir , "%s_%s_%d_%d" % (self.title, self.author ,self.audio_file, self.audio_count) , "wav")
 										self.audio_file += 1;
 										self.audio_count = 0;
 									else:
 										self.audio = audio_append(self.audio, audio_full_name);
-
-
-
 								elif ty == "image":
 									if item.has_key('image') and item['image'].has_key('full'):
 										image_url 	= 	item['image']['full']['url'];
@@ -567,7 +540,7 @@ class zhihulive:
 			else:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
-		audio_export(self.audio, self.target_dir , "%d_%d_%d" % (self.live_id, self.audio_file, self.audio_count) , "wav")
+		audio_export(self.audio, self.target_dir , "%s_%s_%d_%d" % (self.title, self.author,self.audio_file, self.audio_count) , "wav")
 # a.go();
 
 b = [773839432754151424];
