@@ -11,6 +11,7 @@ import urllib;
 import urllib2;
 import ConfigParser
 from lxml import etree
+from pydub import AudioSegment
 
 reload(sys) 
 sys.setdefaultencoding('utf-8')
@@ -36,6 +37,24 @@ logging.basicConfig(level = logging.WARNING,format = LOG_FORMAT);
 handler = logging.FileHandler("log.txt")
 L = logging.getLogger(__name__);
 L.addHandler(handler)
+
+
+#audio file init
+def audio_init(file):
+	return AudioSegment.from_file(file);
+
+
+#make file2 append to audio1
+def audio_append(audio1, file2):
+	a2 = AudioSegment.from_file(file2);
+	audio1.append(a2);
+	return audio1.append(a2);
+
+#audio file export to specific formt file
+def audio_export(audio, path, file, format):
+	file = os.path.join(path, "%s.%s" % (file, format) );
+	audio.export(file, format=format);
+	L.warning("export to %s" % file);
 
 
 def json_save(obj, path):
@@ -130,6 +149,8 @@ class zhihulive:
 		self.driver 	=	None;				# explorer driver
 		self.confpaser  =	ConfigParser.ConfigParser();
 		self.conf_path 	= 	"./config.ini"
+		self.audio_count=	0;
+		self.audio_file =	0;
 
 
 
@@ -324,7 +345,7 @@ class zhihulive:
 		self.title = title;
 
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
-		live_dir_name 	= "%s_%s_%d" % (title[0:-1], score, self.live_id)
+		live_dir_name 	= "%s_%s_%d" % (title, score, self.live_id)
 		self.target_dir 		= os.path.join(self.save_path, live_dir_name);
 
 		if os.path.exists(self.target_dir ):
@@ -428,7 +449,8 @@ class zhihulive:
 										audio_url = item['audio']['url'];
 										# local_local_path = os.path.join(local_dir, "%d.m4a" % item_id);
 										audio_name = "%d.m4a" % item_id
-										if not os.path.exists(os.path.join(local_dir, audio_name)):
+										audio_full_name = os.path.join(local_dir, audio_name);
+										if not os.path.exists(audio_full_name):
 											if download(audio_url, local_dir, audio_name) == True:
 												L.info("[+++][audio] %d download successfully count :%d" % (item_id,item_count_done));
 											else:
@@ -437,6 +459,20 @@ class zhihulive:
 											L.info("[---][audio]%s 已经存在 跳过" % audio_name);
 									else:
 										pass;
+
+									self.audio_count += 1;
+									L.error(self.audio_count);
+									if self.audio_count == 1:
+										self.audio = audio_init(audio_full_name);
+									elif self.audio_count % 30 == 0:
+										self.audio = audio_append(self.audio, audio_full_name);
+										audio_export(self.audio, self.target_dir , "%d_%d_%d" % (self.live_id, self.audio_file, self.audio_count) , "wav")
+										self.audio_file += 1;
+										self.audio_count = 0;
+									else:
+										self.audio = audio_append(self.audio, audio_full_name);
+
+
 
 								elif ty == "image":
 									if item.has_key('image') and item['image'].has_key('full'):
@@ -531,8 +567,7 @@ class zhihulive:
 			else:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
-
-# a = zhihulive(955469864995979264, "../download/");
+		audio_export(self.audio, self.target_dir , "%d_%d_%d" % (self.live_id, self.audio_file, self.audio_count) , "wav")
 # a.go();
 
 b = [773839432754151424];
