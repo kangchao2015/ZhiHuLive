@@ -15,12 +15,11 @@ from pydub import AudioSegment
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
+	#audio file init
 
-
-
-ZHIHU_URL 				=	"https://www.zhihu.com"
-UESR_NAME 				=	"jushou2018@163.com"
-PASSWORD  				=	"20140619fgt"
+ZHIHU_URL				=	"https://www.zhihu.com"
+UESR_NAME 				=	"jushou2018@163.com";
+PASSWORD  				=	"20140619fgt";
 HEADER	  				=	{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'};
 CHROME_DRIVER_PATH 		=	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
 PHANTOMJS_DRIVER_PATH	=	"C:\\Program Files (x86)\\phantomjs\\phantomjs.exe";
@@ -29,17 +28,14 @@ VERIFY_CODE_DIR			=	"./Verofy_code/"
 LOG_FORMAT				=	"[%(asctime)s] [%(levelname)-7s] - %(message)s"
 LOGIN_STATUS			=	False;
 TRY_TIMES				=	2;
-# BROWER_CHROME			= 	webdriver.Chrome(CHROME_DRIVER_PATH);
-# BROWER_PHANTOMJS		=	webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 
-#log init
-logging.basicConfig(level = logging.WARNING,format = LOG_FORMAT);
+logging.basicConfig(level = logging.INFO,format = LOG_FORMAT);
 handler = logging.FileHandler("log.txt")
 L = logging.getLogger(__name__);
-L.addHandler(handler)
+L.addHandler(handler);
 
 
-#audio file init
+
 def audio_init(file):
 	return AudioSegment.from_file(file);
 
@@ -53,7 +49,7 @@ def audio_append(audio1, file2):
 def audio_export(audio, path, file, format):
 	file = os.path.join(path, "%s.%s" % (file, format) );
 	audio.export(file, format=format);
-	L.warning("export to %s" % file);
+	L.info("export to %s" % file);
 
 
 def json_save(obj, path):
@@ -133,7 +129,13 @@ def curl(url):
     return html;
 
 
-######################## -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- ################################
+
+
+def configinit(username, password):
+	pass;
+
+
+	######################## -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- ################################
 
 
 class zhihulive:
@@ -196,34 +198,34 @@ class zhihulive:
 
 	#cookie load...
 	def step1(self):
-		L.info("step1 start!");
+		L.debug("step1 start!");
 		self.cookie = json_read(COOKIE_SAVE_PATH);
 		if(self.cookie != False):
-			L.info("cookies load successfully!");
+			L.debug("cookies load successfully!");
 			self.s.cookies.update(self.cookie);
 		else:
-			L.info("no cookies file found! start to Login by username and password");
+			L.warning("no cookies file found! start to Login by username and password");
 			return False;
 
 		if(self.checkIfLoginSuccess()):
-			L.info("cookies status OK! ");
+			L.debug("cookies status OK! ");
 			return True;
 		else:
-			L.info("cookies experier! start to Login by username and password");
+			L.warning("cookies experier! start to Login by username and password");
 			return False;
 
 	def step2(self):
-		L.info("step2 start!");
+		L.debug("step2 start!");
 		self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
 		# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 		self.driver.get(ZHIHU_URL);
-		L.info("titile is %s", self.driver.title);
+		L.debug("titile is %s", self.driver.title);
 
 		bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='93']");
 		bt_login.click();
 
 	def step3(self):
-		L.info("step3 start!");
+		L.debug("step3 start!");
 		input_username = self.driver.find_element_by_xpath("//input[@name='username']");
 		input_password = self.driver.find_element_by_xpath("//input[@name='password']");
 
@@ -232,7 +234,7 @@ class zhihulive:
 
 
 	def step4(self):
-		L.info("step4 start!");
+		L.debug("step4 start!");
 		bt_submit = self.driver.find_element_by_xpath("//button[@type='submit']");
 		verify_code_english = getElement(self.driver, "//img[@class='Captcha-englishImg']");
 		verify_code_chinese = getElement(self.driver, "//img[@class='Captcha-chineseImg']");
@@ -261,7 +263,7 @@ class zhihulive:
 			L.error("Login failed!");
 
 	def step5(self):
-		L.info("step5 start!");
+		L.debug("step5 start!");
 		self.cookie = dict();
 		for item in self.driver.get_cookies():
 			self.cookie[item['name']] = item['value'];
@@ -280,7 +282,7 @@ class zhihulive:
 
 
 	def step6(self):
-		L.info("step6 start!");
+		L.debug("step6 start!");
 
 		live_url 		= "https://www.zhihu.com/lives/%d" % self.live_id;
 		if(not os.path.exists("./record/%d.conf" % self.live_id)):
@@ -309,9 +311,9 @@ class zhihulive:
 			self.confpaser.set('config',"score",self.score);
 			self.confpaser.set('config',"id",self.live_id);
 			self.confpaser.write(open("./record/%d.conf" % self.live_id,"w"));
-			L.info("配置文件写入成功！./record/%d.conf" % self.live_id);
+			L.debug("配置文件写入成功！./record/%d.conf" % self.live_id);
 		else:
-			L.info("当前live的配置信息存在 读取配置文件... ./record/%d.conf" % self.live_id);
+			L.debug("当前live的配置信息存在 读取配置文件... ./record/%d.conf" % self.live_id);
 			self.confpaser.read("./record/%d.conf" % self.live_id);
 			self.title = self.confpaser.get("config", "title").decode('utf-8');
 			self.author = self.confpaser.get("config", "author").decode('utf-8');
@@ -323,20 +325,20 @@ class zhihulive:
 		self.target_dir 		= os.path.join(self.save_path, live_dir_name);
 
 		if os.path.exists(self.target_dir ):
-			L.info("目录[%s]已经存在！" % (self.target_dir ));
+			L.debug("目录[%s]已经存在！" % (self.target_dir ));
 		else:
 			try:
 				os.makedirs(self.target_dir );
-				L.info("目录[%s]创建成功！" % (self.target_dir ));	
+				L.debug("目录[%s]创建成功！" % (self.target_dir ));	
 			except Exception as e:
 				L.error("目录[%s]创建失败！" % (self.target_dir ));
 				return False;
 
-		L.info("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (self.title, self.score,self.live_id, self.author));
+		L.debug("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (self.title, self.score,self.live_id, self.author));
 		return True;
 
 	def step7(self):
-		L.info("step7 started");
+		L.debug("step7 started");
 		way_go 		= "chronology";
 		limit 		= "limit";
 		after_id 	= "after_id"
@@ -352,11 +354,11 @@ class zhihulive:
 			for k,v in data_obj.items():
 				if k == "unload_count":
 					total_count = int(v);
-					L.info("live:%d 总计条数:%d" % (self.live_id, total_count));
+					L.debug("live:%d 总计条数:%d" % (self.live_id, total_count));
 				elif k == "data":
 					for item in data_obj['data']:
 						first_id = int(item['id'].encode('utf-8'));
-						L.info("live:%d 的第一条记录id:%d" % (self.live_id, first_id));
+						L.debug("live:%d 的第一条记录id:%d" % (self.live_id, first_id));
 				else:
 					continue;
 		else:
@@ -412,9 +414,9 @@ class zhihulive:
 										if not os.path.exists(text_path):
 											with open(text_path,"w") as f:
 												f.write("%s" % item['text']);
-											L.info("[+++][text]%d - %d 保存成功" % (item_count_done, item_id));
+											L.debug("[+++][text]%d - %d 保存成功" % (item_count_done, item_id));
 										else:
-											L.info("[---][text]%d - %d文本信息 已经存在 跳过" % (item_count_done, item_id));
+											L.debug("[---][text]%d - %d文本信息 已经存在 跳过" % (item_count_done, item_id));
 									else:
 										L.error("%d - %d 没有text信息" % (item_count_done, item_id));
 								elif ty == "audio":
@@ -426,22 +428,22 @@ class zhihulive:
 										audio_full_name = os.path.join(local_dir, audio_name);
 										if not os.path.exists(audio_full_name):
 											if download(audio_url, local_dir, audio_name) == True:
-												L.info("[+++][audio] %d download successfully count :%d" % (item_id,item_count_done));
+												L.debug("[+++][audio] %d download successfully count :%d" % (item_id,item_count_done));
 											else:
 												L.error("[xxx][audio]download failed %d" % item_id);
 										else:
-											L.info("[---][audio]%s 已经存在 跳过" % audio_name);
+											L.debug("[---][audio]%s 已经存在 跳过" % audio_name);
 									else:
 										pass;
 
 									self.audio_count += 1;
-									L.error(self.audio_count);
+									L.debug(self.audio_count);
 									if self.audio_count == 1:
 										self.audio = audio_init(audio_full_name);
 									elif self.audio_count % 30 == 0:
 										self.audio = audio_append(self.audio, audio_full_name);
 
-										audio_export(self.audio, self.target_dir , "%s_%s_%d_%d" % (self.title, self.author ,self.audio_file, self.audio_count) , "ogg")
+										audio_export(self.audio, self.target_dir , "%s_%s_%d_%d" % (self.title, self.author ,self.audio_file, self.audio_count) , "wav")
 										self.audio_file += 1;
 										self.audio_count = 0;
 									else:
@@ -452,11 +454,11 @@ class zhihulive:
 										image_name 	=	"%d.jpg" % item_id; 
 										if not os.path.exists(os.path.join(local_dir, image_name)):
 											if download(image_url, local_dir, image_name) == True:
-												L.info("[+++][image] %d download successfully count :%d" % (item_id,item_count_done));
+												L.debug("[+++][image] %d download successfully count :%d" % (item_id,item_count_done));
 											else:
 												L.error("[xxx][image]download failed %s" % image_url);
 										else:
-											L.info("[---][image]%s 已经存在 跳过" % image_url);
+											L.debug("[---][image]%s 已经存在 跳过" % image_url);
 									else:
 										pass;
 								elif ty == "multiimage":
@@ -468,11 +470,11 @@ class zhihulive:
 											pic_url 	=	pic["full"]["url"];
 											if not os.path.exists(os.path.join(local_dir, pic_name)):
 												if download(pic_url, local_dir, pic_name) == True:
-													L.info("[+++][mpic] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
+													L.debug("[+++][mpic] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
 												else:
 													L.error("[xxx][mpic]download failed %s" % pic_url);
 											else:
-												L.info("[---][mpic]%s 已经存在 跳过" % pic_url);
+												L.debug("[---][mpic]%s 已经存在 跳过" % pic_url);
 
 									else:
 										pass;
@@ -485,11 +487,11 @@ class zhihulive:
 											video_url  = vd["url"];
 											if not os.path.exists(os.path.join(local_dir, video_name)):
 												if download(video_url, local_dir, video_name) == True:
-													L.info("[+++][video] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
+													L.debug("[+++][video] %d download successfully count :%d--%d" % (item_id,item_count_done, pos));
 												else:
 													L.error("[xxx][video]download failed %s" % image_url);
 											else:
-												L.info("[---][video]%s 已经存在 跳过" % image_url);
+												L.debug("[---][video]%s 已经存在 跳过" % image_url);
 									else:
 										pass;
 								elif ty == "reward":
@@ -500,12 +502,12 @@ class zhihulive:
 										file_name 	=	item['file']['file_name'];
 										if not os.path.exists(os.path.join(local_dir, file_name)):
 											if download(file_url, local_dir, file_name) == True:
-												L.info("[+++][file] %d download successfully count :%d" % (item_id,item_count_done));
+												L.debug("[+++][file] %d download successfully count :%d" % (item_id,item_count_done));
 											else:
 												L.error("[xxx][file]download failed %s" % image_url);
 										else:
-											L.info("[---][file]%s 已经存在 跳过" % image_url);
-										L.info(item_count_done);
+											L.debug("[---][file]%s 已经存在 跳过" % image_url);
+										L.debug(item_count_done);
 									else:
 										pass;
 								else:
@@ -522,9 +524,9 @@ class zhihulive:
 								if not os.path.exists(author_path):
 									with open(author_path,"w") as f:
 										f.write("%s - %s [%s]" % (xname, xdesc, ty));
-									L.info("[+++][author]%d - %d 作者信息 保存成功" % (item_count_done, item_id));
+									L.debug("[+++][author]%d - %d 作者信息 保存成功" % (item_count_done, item_id));
 								else:
-									L.info("[---][author]%d - %d作者信息 已经存在 跳过" % (item_count_done, item_id));
+									L.debug("[---][author]%d - %d作者信息 已经存在 跳过" % (item_count_done, item_id));
 							else:
 								L.error("[xxx][author]%d - %d作者信息 不存在" % (item_count_done, item_id));
 
@@ -535,80 +537,29 @@ class zhihulive:
 					else:
 						# print "%s ==> %s" %(k,v);
 						pass;
-				L.info("本次总共抓取条数：%-2d 总计抓取条数：%-4d 当前抓取之前的剩余条数(API)：%-4d 剩余抓取:%d" % (count,item_count_done,unload_count,total_count-item_count_done));
+				L.debug("本次总共抓取条数：%-2d 总计抓取条数：%-4d 当前抓取之前的剩余条数(API)：%-4d 剩余抓取:%d" % (count,item_count_done,unload_count,total_count-item_count_done));
 			else:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
-		audio_export(self.audio, self.target_dir , "%s_%s_%d_%d" % (self.title, self.author,self.audio_file, self.audio_count) , "ogg")
-# a.go();
-
-b = [840607991060385792,734822901194162176 ,843465964363333632,881199555385884672,903282093432389632,895615716198330368,822125251751186432];
-for z in b:
-	a = zhihulive(z, "../download/master");
-	a.go();
-# a = zhihulive(823240334342492160, "../download/");
-# a.go();
+		audio_export(self.audio, self.target_dir , "%s_%s_%d_%d" % (self.title, self.author,self.audio_file, self.audio_count) , "wav")
 
 
-
-# driver = webdriver.Chrome(CHROME_DRIVER_PATH);
-# driver.get("https://www.zhihu.com/market/lives/unlimited/choiceness");
-# time.sleep(1);
-# a = driver.execute_script("return window.__APP_STATE__");
-# time.sleep(2);
-# driver.close();
-
-# total_size  = dict();
-# statics 	= dict();
-# for z in a['prefetch']['LiveUnlimited']['result'][1]['value']:
-# 	b = dict();
-
-# 	b['name'] 	= z['token'];
-# 	b['count'] 	= z['resource_count'];
-# 	b['c_id'] 	= z['id'];
-# 	total_size[b['c_id']] = b;
+def doit(liveids):
+	if isinstance(liveids, long):
+		a = zhihulive(liveids, "../download");
+		a.go();
+	elif isinstance(liveids, list):
+		current = 0;
+		total 	=	len(liveids);
+		for a in liveids:
+			current += 1;
+			L.info("共要抓取%d个live, 当前正要抓取第 %d/%d个" % (total,current,total));
+			b = zhihulive(a, "../download");
+			b.go();
+			L.info("当前正要抓取第 %d/%d个 操作完成" % (current,total));
+	else:
+		L.error("未知ID类型");
 
 
-
-# all_total 				= 0;				#lives count
-# cat_offset_cat_count 	= 0;				#lives category count
-# for k,v in total_size.items():
-# 	cat_id 		= int(v['c_id'].encode('utf-8'));
-# 	cat_name 	= v['name'].encode('utf-8');
-# 	cat_count 	= v['count'];
-
-# 	dirctory 	= os.path.join("../download/", cat_name);
-# 	if os.path.exists(dirctory):
-# 		pass;
-# 	else:
-# 		os.makedirs(dirctory);
-
-# 	size = 20;			#caount per curl
-# 	offset = 0;			#url offset parm
-# 	cur_cat_count = 0;	#total cat count
-# 	while offset < cat_count - 2 :
-		
-# 		current_time_curl_count = 0;  # current cur count
-# 		catgory_url = 	"https://api.zhihu.com/unlimited/subscriptions/1/resources?limit=%d&offset=%d&tag_id=%d" % (size, offset, cat_id);
-
-# 		target_json = 	curl(catgory_url);
-# 		target_obj	=	json.loads(target_json);	
-
-# 		for item in target_obj['data']:
-# 			current_time_curl_count = current_time_curl_count + 1;
-# 			all_total		= all_total + 1;
-# 			cur_cat_count 	= cur_cat_count + 1;
-# 			live_id = int(item['item']['id'].encode("utf-8"));
-# 			live = zhihulive(live_id, dirctory);
-# 			live.go();
-
-
-# 		offset 	= offset + current_time_curl_count;
-# 		L.info("single curl:[id:%d][%d/%d]current_time_curl_count:%d" % (cat_id,offset, cat_count,current_time_curl_count));
-
-# 	cat_offset_cat_count += 1;
-# 	L.warning("%12s 类[%d][%2d]的 live 抓取/总计：%d/%d场" % (cat_name,cat_id,cat_offset_cat_count,offset,cat_count));
-
-
-# L.warning("所有live总计 %d 类 %d 场" % (cat_offset_cat_count,all_total));	
-
+if __name__ == '__main__':
+	pass;
