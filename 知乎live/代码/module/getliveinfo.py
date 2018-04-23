@@ -173,10 +173,10 @@ def curl(url):
 class login():
 		#cookie load...
 
-	def checkIfLoginSuccess():
+	def checkIfLoginSuccess(self):
 		checkurl = "https://www.zhihu.com/api/v4/me";
 
-		r = S_SESSION.get(self.checkurl, headers=HEADER);
+		r = S_SESSION.get(checkurl, headers=HEADER);
 		if r.status_code == 200:
 			return True;
 		else:
@@ -220,7 +220,7 @@ class login():
 		self.driver.get(ZHIHU_URL);
 		L.debug("titile is %s", self.driver.title);
 
-		bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='93']");
+		bt_login = self.driver.find_element_by_xpath("//div[@class='SignContainer-switch']/span");
 		bt_login.click();
 
 	def step3(self):
@@ -254,21 +254,14 @@ class login():
 
 		bt_submit.click();
 
-		if(self.checkIfLoginSuccess):
-			L.info("Login successfully!");
-		else:
-			L.error("Login failed!");
-
 	def step5(self):
+
 		if hasattr(self,"driver"):
-			self.cookie = dict();
 			for items in self.driver.get_cookies():
 				self.cookie[items['name']] = items['value'];
-		else:
-			pass;        
-
 		S_SESSION.cookies.update(self.cookie);
-		if(self.checkIfLoginSuccess):
+
+		if(self.checkIfLoginSuccess()):
 			L.info("cookies update successfully");
 			if(json_save(self.cookie,COOKIE_SAVE_PATH)):
 				L.info("cookies saved successfully!");
@@ -339,15 +332,15 @@ class zhihulive:
 			live_json	 = curl(live_api_url);
 			if live_json == None:
 				L.error("%d curl获取json失败!" % live_id);
-				return;
+				return None;
 			else:
 				live_obj	 = json.loads(live_json);
 
+
 			self.author = live_obj['speaker']['member']['name'];
 			self.score = live_obj['feedback_score'];
-			self.title = live_obj['subject']
-
-
+			self.title = live_obj['subject'].replace('/','_');
+			self.live_type = live_obj['live_type']
 			if os.path.exists("./record/"):
 				pass;
 			else:
@@ -358,6 +351,7 @@ class zhihulive:
 			self.confpaser.set('config',"author",self.author);
 			self.confpaser.set('config',"score",self.score);
 			self.confpaser.set('config',"id",self.live_id);
+			self.confpaser.set('config',"livetype",self.live_type);
 			self.confpaser.write(open("./record/%d.conf" % self.live_id,"w"));
 			L.debug("配置文件写入成功！./record/%d.conf" % self.live_id);
 		else:
@@ -366,6 +360,11 @@ class zhihulive:
 			self.title = self.confpaser.get("config", "title").decode('utf-8');
 			self.author = self.confpaser.get("config", "author").decode('utf-8');
 			self.score = self.confpaser.get("config", "score");
+			self.live_type = self.confpaser.get("config", "livetype");
+
+		if self.live_type == "video":
+			L.error("%s %d为视屏live  !!跳过!!" % (self.title, self.live_id));
+			return None;
 
 
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
@@ -384,7 +383,6 @@ class zhihulive:
 					path = os.path.join(self.target_dir, v[0]);
 					if not os.path.exists(path):
 						os.makedirs(path);
-						self.tpath[k] = path;
 					else:
 						pass;
 
@@ -394,7 +392,7 @@ class zhihulive:
 				print e;
 				return False;
 
-		L.debug("当前正在抓取的live:《%s》,评分：[%s],id:[%d], 作者:%s" % (self.title, self.score,self.live_id, self.author));
+		L.info("当前正在抓取的live:《%s》[type:%s],评分：[%s],id:[%d], 作者:%s" % (self.title, self.live_type,self.score,self.live_id, self.author));
 		return True;
 
 	#获取live的详细内容
@@ -531,7 +529,7 @@ class zhihulive:
 									else:
 										pass;
 								elif ty == "multiimage":
-									print "----------------------------------------------------------"
+									print "mulitimage ----------------------------------------------------------"
 									if item.has_key("multiimage"):
 										for pic in item["multiimage"]:
 											self.tpath['f'][1] += 1;
@@ -550,7 +548,7 @@ class zhihulive:
 									else:
 										pass;
 								elif ty == "video":
-									print "----------------------------------------------------------"
+									print "video----------------------------------------------------------"
 									if item.has_key("video") and item["video"].has_key("playlist"):
 										for vd in item["video"]["playlist"]:
 											self.tpath['f'][1] += 1;
@@ -569,7 +567,7 @@ class zhihulive:
 								# elif ty == "reward":
 								# 	pass;
 								elif ty == "file":
-									print "----------------------------------------------------------"
+									print "file----------------------------------------------------------"
 									if item.has_key('file') and item['file'].has_key('url'):
 										self.tpath['f'][1] += 1;
 										file_url 	= 	item['file']['url'];
@@ -651,9 +649,16 @@ def getlive_type1(liveids):
 
 def getlive_type2():
 	live_id_set = 	getallliveid();
-	live_size 	=	len(live_id_set);
-	if live_size == 0:
+
+	if isinstance(live_id_set, set):
+		print 123;
+		live_size 	=	len(live_id_set);
+	else:
+		live_size = 0;
+
+	if live_size == 0 :
 		L.warning("账号%s中没有可以抓取的live跳过！" % UESR_NAME)
+		return;
 	else:
 		pass;
 
@@ -699,7 +704,7 @@ def getallliveid():
 	return list;
 
 def getuserid():
-	url = "https://www.zhihu.com/api/v4/me?include=visits_count";
+	url = "https://www.zhihu.com/api/v4/me";
 	r = S_SESSION.get(url, headers = HEADER);
 
 	if r.status_code == 200:
