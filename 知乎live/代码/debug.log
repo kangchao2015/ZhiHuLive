@@ -7,3 +7,21 @@
 [0419/103603.205:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
 [0419/103603.308:ERROR:exception_snapshot_win.cc(88)] thread ID 18296 not found in process
 [0419/103603.308:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0424/113649.641:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[0424/113649.726:ERROR:exception_snapshot_win.cc(88)] thread ID 15196 not found in process
+[0424/113649.726:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0424/113747.885:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[0424/113747.885:ERROR:exception_snapshot_win.cc(88)] thread ID 4776 not found in process
+[0424/113747.885:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0424/113806.819:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[0424/113806.823:ERROR:exception_snapshot_win.cc(88)] thread ID 764 not found in process
+[0424/113806.823:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0424/230535.649:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[0424/230535.742:ERROR:exception_snapshot_win.cc(88)] thread ID 1644 not found in process
+[0424/230535.742:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0424/231952.837:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[0424/231952.838:ERROR:exception_snapshot_win.cc(88)] thread ID 5676 not found in process
+[0424/231952.838:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0425/123812.437:ERROR:process_reader_win.cc(123)] NtOpenThread: {无法访问} 过程已请求访问一对象，但未给访问权限。 (0xc0000022)
+[0425/123812.544:ERROR:exception_snapshot_win.cc(88)] thread ID 10296 not found in process
+[0425/123812.545:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed

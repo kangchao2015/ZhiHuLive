@@ -16,6 +16,4 @@ glive_config = {
 
 
 glive.setconfig(**glive_config);
-#type 为1 的下载当前指定的live
-#type 为2 的下载当前账号中的所有live
-glive.doit(927610618117259264,1);
+glive.doit([924677414355890176],1);

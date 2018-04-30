@@ -11,6 +11,7 @@ import datetime;
 import urllib;
 import urllib2;
 import ConfigParser
+import traceback
 from lxml import etree
 from pydub import AudioSegment
 
@@ -19,12 +20,12 @@ sys.setdefaultencoding('utf-8')
 	#audio file init
 
 ZHIHU_URL				=	"https://www.zhihu.com"
-UESR_NAME 				=	"guansuo2018@163.com";
-PASSWORD  				=	"kc80241546";
+UESR_NAME 				=	"806404381@qq.com";
+PASSWORD  				=	"bh123456";
 HEADER	  				=	{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'};
 CHROME_DRIVER_PATH 		=	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
 PHANTOMJS_DRIVER_PATH	=	"C:\\Program Files (x86)\\phantomjs\\phantomjs.exe";
-COOKIE_SAVE_PATH		=	"./cookie.txt"
+COOKIE_SAVE_PATH		=	"d:\\cookie.txt"
 VERIFY_CODE_DIR			=	"./Verofy_code/"
 LOG_FORMAT				=	"[%(asctime)s] [%(levelname)-7s] - %(message)s"
 LOGIN_STATUS			=	False;
@@ -36,7 +37,7 @@ S_SESSION				=	requests.Session();	#session
 handler = logging.FileHandler("log.txt")
 L = logging.getLogger(__name__);
 L.addHandler(handler);
-
+	
 
 ##############################################
 #需要配置如下参数
@@ -136,12 +137,13 @@ def download(url,dir,name=None):
 		if os.path.exists(dir):
 			pass;
 		else:
-			os.mkdirs(dir);
+			os.makedirs(dir);
 		path = os.path.join(dir, defaultName); 
 		urllib.urlretrieve(url, path);
 		return True;
 	except Exception as e:
-		print "error ";
+		print "error %s" % e.message;
+		print traceback.print_exc();
 		return False;
 
 
@@ -180,6 +182,7 @@ class login():
 		if r.status_code == 200:
 			return True;
 		else:
+			L.error("login check failed [%d]" % r.status_code);
 			return False;
 
 
@@ -204,18 +207,25 @@ class login():
 				break;
 
 	def step1(self):
-		self.cookie = json_read(COOKIE_SAVE_PATH);
-		if(self.cookie != False):
-			L.debug("cookies load successfully!");
-			S_SESSION.cookies.update(self.cookie);
+		if os.path.exists(COOKIE_SAVE_PATH):
+			print "asdfasdf"
+			self.cookie = json_read(COOKIE_SAVE_PATH);
+			if(self.cookie != False):
+				L.debug("cookies load successfully!");
+				S_SESSION.cookies.update(self.cookie);
+			else:
+				L.warning("no cookies file found! start to Login by username and password");
+				return False;
 		else:
 			L.warning("no cookies file found! start to Login by username and password");
 			return False;
+
 
 		return True;
 
 	def step2(self):
 		self.driver = webdriver.Chrome(CHROME_DRIVER_PATH);
+		self.driver.delete_all_cookies()
 		# self.driver = webdriver.PhantomJS(PHANTOMJS_DRIVER_PATH);
 		self.driver.get(ZHIHU_URL);
 		L.debug("titile is %s", self.driver.title);
@@ -236,42 +246,92 @@ class login():
 		verify_code_english = getElement(self.driver, "//img[@class='Captcha-englishImg']");
 		verify_code_chinese = getElement(self.driver, "//img[@class='Captcha-chineseImg']");
 		if(verify_code_chinese != None or verify_code_english != None):
-			if(verify_code_english != None):
-				vcode = verify_code_english.get_attribute("src");
-			elif(verify_code_chinese != None):
-				vcode = verify_code_chinese.get_attribute("src");
-			else:
-				pass;
+			# if(verify_code_english != None):
+			# 	vcode = verify_code_english.get_attribute("src");
+			# elif(verify_code_chinese != None):
+			# 	vcode = verify_code_chinese.get_attribute("src");
+			# else:
+			# 	pass;
 
-			if(vcode == "data:image/jpg;base64,null"):
-				L.info("how lucky no verify code!");
-			else:
-				count = 5;
-				while(count > 0):
-					time.sleep(1);
-					count = count - 1;
-					L.info("%ds left to fill in the verify code befor login" % count);
+			# if(not vcode.startswith("data:image/jpg;base64")):
+			count = 5;
+			while(count > 0):
+				time.sleep(1);
+				count = count - 1;
+				L.info("%ds left to fill in the verify code befor login" % count);
+		else:
+			L.info("how lucky no verify code!");
 
 		bt_submit.click();
 
 	def step5(self):
-
+		set_cookie = set(["_zap","q_c1","z_c0","_xsrf","aliyungf_tc","capsion_ticket","d_c0"]);
 		if hasattr(self,"driver"):
 			for items in self.driver.get_cookies():
-				self.cookie[items['name']] = items['value'];
-		S_SESSION.cookies.update(self.cookie);
+				print items['name'];
+				if items['name'] in set_cookie:
+					self.cookie[items['name']] = items['value'];
+					set_cookie.remove(items['name']);
+				else:
+					print "cookie %s not in the cookie_list";
+					sys.exit(1);
 
-		if(self.checkIfLoginSuccess()):
+			for cookie_key in set_cookie:
+				val = raw_input("please input %s:" % cookie_key);
+				self.cookie[cookie_key] = val;
+
+
+			S_SESSION.cookies.update(self.cookie);
+			time.sleep(2);
+
+		# if(self.checkIfLoginSuccess()):
+		res = self.checkIfLoginSuccess();
+		if True:
 			L.info("cookies update successfully");
 			if(json_save(self.cookie,COOKIE_SAVE_PATH)):
 				L.info("cookies saved successfully!");
 				if hasattr(self, "driver"):
-					self.driver.close();
+					pass;
+					# self.driver.close();
 			else:
 				L.info("cookies saved failed!");
 
 		else:
 			L.error("cookies update failed!");
+			time.sleep(2000);
+			sys.exit(1);
+
+
+class sijiake:
+	def __init__(self,sjk_id,save_path):
+		self.id = sjk_id;
+		self.save_path = save_path;
+		self.url = "https://api.zhihu.com/remix/albums/%d" % self.id;
+
+		if os.path.exists(self.save_path):
+			pass;
+		else:
+			os.makedirs(self.save_path);
+
+	def go(self):
+		r = S_SESSION.get(self.url, headers = HEADER);
+
+		data_json_text 	= 	r.text;
+		data_obj		=	json.loads(data_json_text);
+
+		sjk_name  =		data_obj['title'];
+
+		for a in data_obj['tracks']:
+			name = "%d_%s" % (a['index'], a['title']);
+			name = name.replace('|','｜');
+			name = name.replace(':','：');
+			audio_url  = a['audio']['url'];
+
+			print a['index'];	
+			print a['title'];
+			print audio_url;
+			if audio_url:
+				download(audio_url, "../download/%s" % sjk_name, "%s.m4a" % name);
 
 
 class zhihulive:
@@ -484,11 +544,13 @@ class zhihulive:
 										L.error("%d - %d 没有text信息" % (item_count_done, item_id));
 								elif ty == "audio":
 									self.audio_count += 1;
+									# print self.tpath['a'][1];
 									if item.has_key('audio') and item['audio'].has_key('url'):
 										self.tpath['a'][1] += 1
 										audio_url = item['audio']['url'];
 										audio_name 		= "%s_%s_%s.m4a" % (str(self.tpath['a'][1]).zfill(5),self.author, self.title)
 										audio_full_name = os.path.join(self.target_dir, self.tpath['a'][0]);
+										#print audio_name;
 										if not os.path.exists(os.path.join(audio_full_name,audio_name)):
 											if download(audio_url, os.path.join(self.target_dir,self.tpath['a'][0]), audio_name) == True:
 												L.debug("[+++][audio] %s download successfully" % audio_full_name);
@@ -508,8 +570,11 @@ class zhihulive:
 									# 	self.audio = audio_append(self.audio, audio_full_name);
 									#
 									# 	audio_export(self.audio, self.target_dir , "%s_%s_%d_%d" % (self.title, self.author ,self.audio_file, self.audio_count) , "ogg")
-									else:
-										self.audio = audio_append(self.audio, os.path.join(audio_full_name,audio_name));
+									else:	
+										try:
+											self.audio = audio_append(self.audio, os.path.join(audio_full_name,audio_name));
+										except Exception as e:
+											print e				
 
 									self.audio_file += 1;
 								elif ty == "image":
@@ -555,7 +620,7 @@ class zhihulive:
 											video_name 	=	"%d_%s_%s.mp4" % (self.tpath['f'][1], self.title, self.author);
 											video_url  = vd["url"];
 											if not os.path.exists(os.path.join(self.target_dir, video_name)):
-												if download(pic_url,os.path.join(self.target_dir, self.tpath['f'][0]), video_name) == True:
+												if download(video_url,os.path.join(self.target_dir, self.tpath['f'][0]), video_name) == True:
 													with open(text_path,"a") as f:
 														f.write("%s--->   %s  %s[%s]\r\n" % (str(item_count_done).zfill(5),(item['sender']['member']['name']+"==>").rjust(10),video_name, item['type']));
 												else:
@@ -617,6 +682,7 @@ class zhihulive:
 				L.error("目标抓取失败！live id :%d" % self.live_id);
 			L.warning("抓取《%s》抓取%d/%d ".encode("utf-8") % (self.title, item_count_done, total_count));
 		audio_export(self.audio, self.target_dir , "%s_%s_%d" % (self.title, self.author, self.audio_count) , "ogg")
+		open(os.path.join(self.target_dir,"done_tag"),"w");
 
 
 def getlive_type1(liveids):
@@ -629,8 +695,6 @@ def getlive_type1(liveids):
 		a = zhihulive(liveids, SPATH);
 		a.go();
 	elif isinstance(liveids, list):
-		print 123;
-
 		if len(liveids) == 0:
 			L.error("没有要抓取的目标live");
 			return None;
@@ -651,7 +715,6 @@ def getlive_type2():
 	live_id_set = 	getallliveid();
 
 	if isinstance(live_id_set, set):
-		print 123;
 		live_size 	=	len(live_id_set);
 	else:
 		live_size = 0;
@@ -739,9 +802,25 @@ def doit(liveids, type):
 	elif type == 3:
 		getlive_type1(liveids);
 		getlive_type2();
+	elif type == 6:
+		s = sijiake(liveids, "./zhihusijiake");
+		s.go();
 	else:
 		L.error("未知操作类型%d" % type);
 
 
 if __name__ == '__main__':
-	pass;
+	glive_config = {
+		"username":"guansuo2018@163.com",
+		"password":"kc80241546",
+		"chromedirver":"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe",
+		"savepath":"../download",
+		"loginlevel":logging.INFO,
+	}
+
+
+
+
+
+	setconfig(**glive_config);
+	doit(933668753932181504,1);

@@ -1,1 +1,655 @@
-抓取live总条数失败！live id :773839432754151424 状态码：401
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+login check failed [401]
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+login check failed [401]
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+login check failed [401]
+cookies update successfully
+cookies saved successfully!
+获取用户guansuo2018@163.com的id失败[401]
+id获取异常
+账号guansuo2018@163.com中没有可以抓取的live跳过！
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update successfully
+cookies saved successfully!
+账号guansuo2018@163.com中共有9场live可以抓取
+当前正要抓取第 1/9个
+init success! live_id:[881846318362955776] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《囚徒带你走进「社会缩影」狼人杀》[type:audio],评分：[4.5],id:[881846318362955776], 作者:囚徒
+开始抓取：881846318362955776
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取30/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取60/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取90/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取120/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取150/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取180/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取210/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取240/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取270/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取300/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取330/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取360/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取390/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取420/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取450/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取480/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取510/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取540/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取570/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取600/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取630/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取660/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取690/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取720/1793 
+item id:884024411194286080 为未知类型消息 type:reward
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取750/1793 
+cookies update successfully
+cookies saved successfully!
+账号guansuo2018@163.com中共有9场live可以抓取
+当前正要抓取第 1/9个
+init success! live_id:[881846318362955776] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《囚徒带你走进「社会缩影」狼人杀》[type:audio],评分：[4.5],id:[881846318362955776], 作者:囚徒
+开始抓取：881846318362955776
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取30/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取60/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取90/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取120/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取150/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取180/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取210/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取240/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取270/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取300/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取330/1793 
+cookies update successfully
+cookies saved successfully!
+账号guansuo2018@163.com中共有9场live可以抓取
+当前正要抓取第 1/9个
+init success! live_id:[881846318362955776] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《囚徒带你走进「社会缩影」狼人杀》[type:audio],评分：[4.5],id:[881846318362955776], 作者:囚徒
+开始抓取：881846318362955776
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取30/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取60/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取90/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取120/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取150/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取180/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取210/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取240/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取270/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取300/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取330/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取360/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取390/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取420/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取450/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取480/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取510/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取540/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取570/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取600/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取630/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取660/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取690/1793 
+cookies update successfully
+cookies saved successfully!
+账号guansuo2018@163.com中共有9场live可以抓取
+当前正要抓取第 1/9个
+init success! live_id:[881846318362955776] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《囚徒带你走进「社会缩影」狼人杀》[type:audio],评分：[4.5],id:[881846318362955776], 作者:囚徒
+开始抓取：881846318362955776
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取30/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取60/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取90/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取120/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取150/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取180/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取210/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取240/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取270/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取300/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取330/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取360/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取390/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取420/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取450/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取480/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取510/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取540/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取570/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取600/1793 
+cookies update successfully
+cookies saved successfully!
+账号guansuo2018@163.com中共有9场live可以抓取
+当前正要抓取第 1/9个
+init success! live_id:[881846318362955776] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《囚徒带你走进「社会缩影」狼人杀》[type:audio],评分：[4.5],id:[881846318362955776], 作者:囚徒
+开始抓取：881846318362955776
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取30/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取60/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取90/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取120/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取150/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取180/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取210/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取240/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取270/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取300/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取330/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取360/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取390/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取420/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取450/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取480/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取510/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取540/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取570/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取600/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取630/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取660/1793 
+cookies update successfully
+cookies saved successfully!
+账号806404381@qq.com中共有10场live可以抓取
+当前正要抓取第 1/10个
+init success! live_id:[772120076848467968] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《人人都能用英语》[type:audio],评分：[4.0],id:[772120076848467968], 作者:李笑来
+开始抓取：772120076848467968
+抓取《人人都能用英语》抓取30/984 
+抓取《人人都能用英语》抓取60/984 
+抓取《人人都能用英语》抓取90/984 
+抓取《人人都能用英语》抓取120/984 
+抓取《人人都能用英语》抓取150/984 
+抓取《人人都能用英语》抓取180/984 
+抓取《人人都能用英语》抓取210/984 
+抓取《人人都能用英语》抓取240/984 
+抓取《人人都能用英语》抓取270/984 
+cookies update successfully
+cookies saved successfully!
+账号806404381@qq.com中共有10场live可以抓取
+当前正要抓取第 1/10个
+init success! live_id:[772120076848467968] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《人人都能用英语》[type:audio],评分：[4.0],id:[772120076848467968], 作者:李笑来
+开始抓取：772120076848467968
+抓取《人人都能用英语》抓取30/984 
+抓取《人人都能用英语》抓取60/984 
+抓取《人人都能用英语》抓取90/984 
+抓取《人人都能用英语》抓取120/984 
+抓取《人人都能用英语》抓取150/984 
+抓取《人人都能用英语》抓取180/984 
+抓取《人人都能用英语》抓取210/984 
+抓取《人人都能用英语》抓取240/984 
+抓取《人人都能用英语》抓取270/984 
+抓取《人人都能用英语》抓取300/984 
+抓取《人人都能用英语》抓取330/984 
+抓取《人人都能用英语》抓取360/984 
+抓取《人人都能用英语》抓取390/984 
+抓取《人人都能用英语》抓取420/984 
+抓取《人人都能用英语》抓取450/984 
+抓取《人人都能用英语》抓取480/984 
+抓取《人人都能用英语》抓取510/984 
+抓取《人人都能用英语》抓取540/984 
+抓取《人人都能用英语》抓取570/984 
+抓取《人人都能用英语》抓取600/984 
+抓取《人人都能用英语》抓取630/984 
+抓取《人人都能用英语》抓取660/984 
+抓取《人人都能用英语》抓取690/984 
+抓取《人人都能用英语》抓取720/984 
+抓取《人人都能用英语》抓取750/984 
+抓取《人人都能用英语》抓取780/984 
+抓取《人人都能用英语》抓取810/984 
+抓取《人人都能用英语》抓取840/984 
+抓取《人人都能用英语》抓取870/984 
+抓取《人人都能用英语》抓取900/984 
+抓取《人人都能用英语》抓取930/984 
+抓取《人人都能用英语》抓取960/984 
+item id:789630689879400448 为未知类型消息 type:reward
+item id:817416317622681600 为未知类型消息 type:reward
+抓取《人人都能用英语》抓取984/984 
+export to ../download\人人都能用英语_李笑来_772120076848467968\人人都能用英语_李笑来_124.ogg
+第 1/10场live操作完成
+当前正要抓取第 2/10个
+init success! live_id:[785846247331209216] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《奥斯卡奖得主说：怎么拍电影不亏钱》[type:audio],评分：[3.5],id:[785846247331209216], 作者:Roger Corman
+开始抓取：785846247331209216
+抓取《奥斯卡奖得主说：怎么拍电影不亏钱》抓取30/95 
+抓取《奥斯卡奖得主说：怎么拍电影不亏钱》抓取60/95 
+抓取《奥斯卡奖得主说：怎么拍电影不亏钱》抓取90/95 
+抓取《奥斯卡奖得主说：怎么拍电影不亏钱》抓取95/95 
+export to ../download\奥斯卡奖得主说：怎么拍电影不亏钱_Roger Corman_785846247331209216\奥斯卡奖得主说：怎么拍电影不亏钱_Roger Corman_29.ogg
+第 2/10场live操作完成
+当前正要抓取第 3/10个
+init success! live_id:[881846318362955776] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《囚徒带你走进「社会缩影」狼人杀》[type:audio],评分：[4.5],id:[881846318362955776], 作者:囚徒
+开始抓取：881846318362955776
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取30/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取60/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取90/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取120/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取150/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取180/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取210/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取240/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取270/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取300/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取330/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取360/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取390/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取420/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取450/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取480/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取510/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取540/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取570/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取600/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取630/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取660/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取690/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取720/1793 
+item id:884024411194286080 为未知类型消息 type:reward
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取750/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取780/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取810/1793 
+item id:884026138496741376 为未知类型消息 type:reward
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取840/1793 
+item id:884026526855753728 为未知类型消息 type:reward
+item id:884027067841269760 为未知类型消息 type:reward
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取870/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取900/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取930/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取960/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取990/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1020/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1050/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1080/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1110/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1140/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1170/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1200/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1230/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1260/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1290/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1320/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1350/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1380/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1410/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1440/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1470/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1500/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1530/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1560/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1590/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1620/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1650/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1680/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1710/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1740/1793 
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1770/1793 
+item id:884047467472121856 为未知类型消息 type:reward
+item id:884048554044297216 为未知类型消息 type:reward
+抓取《囚徒带你走进「社会缩影」狼人杀》抓取1793/1793 
+export to ../download\囚徒带你走进「社会缩影」狼人杀_囚徒_881846318362955776\囚徒带你走进「社会缩影」狼人杀_囚徒_33.ogg
+第 3/10场live操作完成
+当前正要抓取第 4/10个
+init success! live_id:[770967595737157632] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《我是如何挖掘娱乐圈「真相」的？》[type:audio],评分：[3.5],id:[770967595737157632], 作者:卓伟
+开始抓取：770967595737157632
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取30/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取60/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取90/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取120/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取150/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取180/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取210/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取240/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取270/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取300/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取330/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取360/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取390/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取420/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取450/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取480/485 
+抓取《我是如何挖掘娱乐圈「真相」的？》抓取485/485 
+export to ../download\我是如何挖掘娱乐圈「真相」的？_卓伟_770967595737157632\我是如何挖掘娱乐圈「真相」的？_卓伟_84.ogg
+第 4/10场live操作完成
+当前正要抓取第 5/10个
+init success! live_id:[775301847089954816] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《你也想成为设计师和产品经理？》[type:audio],评分：[4.0],id:[775301847089954816], 作者:马力·在招聘
+开始抓取：775301847089954816
+抓取《你也想成为设计师和产品经理？》抓取30/323 
+抓取《你也想成为设计师和产品经理？》抓取60/323 
+抓取《你也想成为设计师和产品经理？》抓取90/323 
+抓取《你也想成为设计师和产品经理？》抓取120/323 
+抓取《你也想成为设计师和产品经理？》抓取150/323 
+抓取《你也想成为设计师和产品经理？》抓取180/323 
+抓取《你也想成为设计师和产品经理？》抓取210/323 
+抓取《你也想成为设计师和产品经理？》抓取240/323 
+抓取《你也想成为设计师和产品经理？》抓取270/323 
+抓取《你也想成为设计师和产品经理？》抓取300/323 
+抓取《你也想成为设计师和产品经理？》抓取323/323 
+export to ../download\你也想成为设计师和产品经理？_马力·在招聘_775301847089954816\你也想成为设计师和产品经理？_马力·在招聘_101.ogg
+第 5/10场live操作完成
+当前正要抓取第 6/10个
+init success! live_id:[803199243262255104] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《关于阅读的一些微小经验》[type:audio],评分：[4.5],id:[803199243262255104], 作者:张佳玮
+开始抓取：803199243262255104
+抓取《关于阅读的一些微小经验》抓取30/488 
+item id:803293492158799872 为未知类型消息 type:reward
+抓取《关于阅读的一些微小经验》抓取60/488 
+抓取《关于阅读的一些微小经验》抓取90/488 
+抓取《关于阅读的一些微小经验》抓取120/488 
+抓取《关于阅读的一些微小经验》抓取150/488 
+抓取《关于阅读的一些微小经验》抓取180/488 
+抓取《关于阅读的一些微小经验》抓取210/488 
+item id:806251064486658048 为未知类型消息 type:reward
+item id:806251413201121280 为未知类型消息 type:reward
+item id:806251502921453568 为未知类型消息 type:reward
+item id:806251634266099712 为未知类型消息 type:reward
+抓取《关于阅读的一些微小经验》抓取240/488 
+item id:806252787167014912 为未知类型消息 type:reward
+item id:806253880722751488 为未知类型消息 type:reward
+抓取《关于阅读的一些微小经验》抓取270/488 
+抓取《关于阅读的一些微小经验》抓取300/488 
+抓取《关于阅读的一些微小经验》抓取330/488 
+抓取《关于阅读的一些微小经验》抓取360/488 
+抓取《关于阅读的一些微小经验》抓取390/488 
+抓取《关于阅读的一些微小经验》抓取420/488 
+抓取《关于阅读的一些微小经验》抓取450/488 
+item id:806272575952027648 为未知类型消息 type:reward
+item id:806272792998850560 为未知类型消息 type:reward
+item id:806272972989042688 为未知类型消息 type:reward
+item id:806273229059678208 为未知类型消息 type:reward
+item id:806274608427835392 为未知类型消息 type:reward
+item id:806275586015264768 为未知类型消息 type:reward
+item id:806278300090630144 为未知类型消息 type:reward
+item id:806317211722616832 为未知类型消息 type:reward
+item id:806324884950093824 为未知类型消息 type:reward
+抓取《关于阅读的一些微小经验》抓取480/488 
+item id:806964507967623168 为未知类型消息 type:reward
+item id:808029569012596736 为未知类型消息 type:reward
+item id:808740531491446784 为未知类型消息 type:reward
+item id:808806875280859136 为未知类型消息 type:reward
+item id:811237671379832832 为未知类型消息 type:reward
+item id:817172590547333120 为未知类型消息 type:reward
+item id:838039871321944064 为未知类型消息 type:reward
+item id:897197096036360192 为未知类型消息 type:reward
+抓取《关于阅读的一些微小经验》抓取488/488 
+export to ../download\关于阅读的一些微小经验_张佳玮_803199243262255104\关于阅读的一些微小经验_张佳玮_64.ogg
+第 6/10场live操作完成
+当前正要抓取第 7/10个
+init success! live_id:[775327162419929088] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《如何成为 HR 领域的大牛》[type:audio],评分：[4.5],id:[775327162419929088], 作者:刀姐
+开始抓取：775327162419929088
+抓取《如何成为 HR 领域的大牛》抓取30/115 
+抓取《如何成为 HR 领域的大牛》抓取60/115 
+抓取《如何成为 HR 领域的大牛》抓取90/115 
+item id:826784536636575744 为未知类型消息 type:reward
+抓取《如何成为 HR 领域的大牛》抓取115/115 
+export to ../download\如何成为 HR 领域的大牛_刀姐_775327162419929088\如何成为 HR 领域的大牛_刀姐_53.ogg
+第 7/10场live操作完成
+当前正要抓取第 8/10个
+init success! live_id:[763851343583547392] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《一小时建立终生受用的阅读操作系统》[type:audio],评分：[3.0],id:[763851343583547392], 作者:李笑来
+开始抓取：763851343583547392
+抓取《一小时建立终生受用的阅读操作系统》抓取30/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取60/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取90/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取120/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取150/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取180/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取210/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取240/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取270/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取300/349 
+抓取《一小时建立终生受用的阅读操作系统》抓取330/349 
+item id:772199700160876544 为未知类型消息 type:reward
+item id:960490009165570048 为未知类型消息 type:reward
+抓取《一小时建立终生受用的阅读操作系统》抓取349/349 
+export to ../download\一小时建立终生受用的阅读操作系统_李笑来_763851343583547392\一小时建立终生受用的阅读操作系统_李笑来_81.ogg
+第 8/10场live操作完成
+当前正要抓取第 9/10个
+init success! live_id:[772203019948298240] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《写一个好故事，有什么技巧？》[type:audio],评分：[3.5],id:[772203019948298240], 作者:蔡骏
+开始抓取：772203019948298240
+抓取《写一个好故事，有什么技巧？》抓取30/290 
+抓取《写一个好故事，有什么技巧？》抓取60/290 
+抓取《写一个好故事，有什么技巧？》抓取90/290 
+抓取《写一个好故事，有什么技巧？》抓取120/290 
+抓取《写一个好故事，有什么技巧？》抓取150/290 
+抓取《写一个好故事，有什么技巧？》抓取180/290 
+抓取《写一个好故事，有什么技巧？》抓取210/290 
+抓取《写一个好故事，有什么技巧？》抓取240/290 
+抓取《写一个好故事，有什么技巧？》抓取270/290 
+item id:842822930265161728 为未知类型消息 type:reward
+抓取《写一个好故事，有什么技巧？》抓取290/290 
+export to ../download\写一个好故事，有什么技巧？_蔡骏_772203019948298240\写一个好故事，有什么技巧？_蔡骏_24.ogg
+第 9/10场live操作完成
+当前正要抓取第 10/10个
+init success! live_id:[757587093366009856] save_path:[D:\ZhiHuLive\֪��live\����\download]
+当前正在抓取的live:《我的读书经验》[type:audio],评分：[3.5],id:[757587093366009856], 作者:李笑来
+开始抓取：757587093366009856
+抓取《我的读书经验》抓取30/234 
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\����\download]

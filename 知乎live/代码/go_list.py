@@ -24,7 +24,7 @@ PASSWORD  				=	"20140619fgt"
 HEADER	  				=	{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'};
 CHROME_DRIVER_PATH 		=	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
 PHANTOMJS_DRIVER_PATH	=	"C:\\Program Files (x86)\\phantomjs\\phantomjs.exe";
-COOKIE_SAVE_PATH		=	"./cookie.txt"
+COOKIE_SAVE_PATH		=	"d:\cookie.txt"
 VERIFY_CODE_DIR			=	"./Verofy_code/"
 LOG_FORMAT				=	"[%(asctime)s] [%(levelname)-7s] - %(message)s"
 LOGIN_STATUS			=	False;
@@ -147,29 +147,31 @@ def db_init():
 	tables = cursor.fetchall()
 	print tables;
 	if ('live_info',) in tables:
-		L.info("数据库%s已经存在" % "live_info");
+		L.info("数据库%s已经存在" % "live_infos");
 	else:
-		sql = 	"DROP TABLE IF EXISTS `live_info`;"
-		sql = 	sql +	"CREATE TABLE `live_info` ("
-		sql =   sql +	"`uuid` int(20) NOT NULL AUTO_INCREMENT,"
+		L.info("数据库%s已不存在" % "live_infos");
+		pass;
+		# sql = 	"DROP TABLE IF EXISTS `live_info`;"
+		# sql = 	sql +	"CREATE TABLE `live_info` ("
+		# sql =   sql +	"`uuid` int(20) NOT NULL AUTO_INCREMENT,"
 
-		for i in colums:
-			c_name = "";
-			for j in i:
-				c_name = c_name + "_" + str(j);
-			c_name = c_name[1:];
-			sql = sql + "`%s` varchar(65530) DEFAULT NULL," % c_name;
+		# for i in colums:
+		# 	c_name = "";
+		# 	for j in i:
+		# 		c_name = c_name + "_" + str(j);
+		# 	c_name = c_name[1:];
+		# 	sql = sql + "`%s` varchar(65530) DEFAULT NULL," % c_name;
 		  
-		sql =	sql +	"PRIMARY KEY (`uuid`)"
-		sql = 	sql + 	") ENGINE=MyISAM DEFAULT CHARSET=utf8;"
-		print sql;
+		# sql =	sql +	"PRIMARY KEY (`uuid`)"
+		# sql = 	sql + 	") ENGINE=MyISAM DEFAULT CHARSET=utf8;"
+		# print sql;
 
-		try:
-			cursor.execute(sql,multi=True)
-			conn.commit();
-			L.info("数据库%s创建成功" % "live_info");
-		except Exception as e:
-			print e;
+		# try:
+		# 	cursor.execute(sql,multi=True)
+		# 	conn.commit();
+		# 	L.info("数据库%s创建成功" % "live_info");
+		# except Exception as e:
+		# 	print e;
 	cursor.close();
 	return conn;
 
@@ -180,7 +182,7 @@ def dealliveinfo(live_id):
 		L.error("live_id not given");
 	
 	#check if record exist
-	sql = "select * from live_info where id = '%d'" % live_id;
+	sql = "select * from live_infos where id = '%d'" % live_id;
 	curson2 = conn.cursor();
 	try:
 		curson2.execute(sql);
@@ -244,7 +246,7 @@ def dealliveinfo(live_id):
 
 
 	#if not exist insert into tabel live_info
-	sql = "INSERT INTO `live_info` (`uuid`"
+	sql = "INSERT INTO `live_infos` (`uuid`"
 	
 	for i in colums_info.keys():
 		sql = sql + ", `%s`" % i;
@@ -313,7 +315,7 @@ def get_cat_list():
 		size = 20;				#caount per curl
 		offset = 0 ;			#url offset parm
 		cat_list_count = 0;
-		while offset < cat_count2-2:
+		while offset < cat_count2:
 			
 			catgory_url = 	"https://api.zhihu.com/unlimited/subscriptions/1/resources?limit=%d&offset=%d&tag_id=%d" % (size, offset, cat_id);
 

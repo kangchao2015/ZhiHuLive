@@ -29503,3 +29503,1064 @@ init success! live_id:[927610618117259264] save_path:[D:\ZhiHuLive\֪��live\down
 抓取《2018，如何用医学做更好的保障？》抓取330/338 
 抓取《2018，如何用医学做更好的保障？》抓取338/338 
 export to ../download\2018，如何用医学做更好的保障？_特仑苏_927610618117259264\2018，如何用医学做更好的保障？_特仑苏_45.ogg
+cookies update successfully
+cookies saved successfully!
+账号guansuo2018@163.com中共有8场live可以抓取
+当前正要抓取第 1/8个
+init success! live_id:[927597688449556480] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018，如何跳出生活的舒适区？》[type:audio],评分：[4.5],id:[927597688449556480], 作者:特仑苏
+开始抓取：927597688449556480
+抓取《2018，如何跳出生活的舒适区？》抓取30/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取60/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取90/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取120/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取150/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取180/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取210/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取240/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取270/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取300/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取330/3432 
+抓取《2018，如何跳出生活的舒适区？》抓取360/3432 
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[865554267287719936] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《公务员考试怎么考到 145》[type:audio],评分：[4.5],id:[865554267287719936], 作者:耕耘
+开始抓取：865554267287719936
+抓取《公务员考试怎么考到 145》抓取30/631 
+抓取《公务员考试怎么考到 145》抓取60/631 
+抓取《公务员考试怎么考到 145》抓取90/631 
+抓取《公务员考试怎么考到 145》抓取120/631 
+抓取《公务员考试怎么考到 145》抓取150/631 
+抓取《公务员考试怎么考到 145》抓取180/631 
+抓取《公务员考试怎么考到 145》抓取210/631 
+抓取《公务员考试怎么考到 145》抓取240/631 
+item id:869645945237819392 为未知类型消息 type:reward
+抓取《公务员考试怎么考到 145》抓取270/631 
+item id:869647559109545984 为未知类型消息 type:reward
+抓取《公务员考试怎么考到 145》抓取300/631 
+抓取《公务员考试怎么考到 145》抓取330/631 
+抓取《公务员考试怎么考到 145》抓取360/631 
+抓取《公务员考试怎么考到 145》抓取390/631 
+item id:869654958318972928 为未知类型消息 type:reward
+item id:869655034382680064 为未知类型消息 type:reward
+抓取《公务员考试怎么考到 145》抓取420/631 
+抓取《公务员考试怎么考到 145》抓取450/631 
+item id:869663960163586048 为未知类型消息 type:reward
+抓取《公务员考试怎么考到 145》抓取480/631 
+抓取《公务员考试怎么考到 145》抓取510/631 
+抓取《公务员考试怎么考到 145》抓取540/631 
+抓取《公务员考试怎么考到 145》抓取570/631 
+抓取《公务员考试怎么考到 145》抓取600/631 
+抓取《公务员考试怎么考到 145》抓取630/631 
+item id:957407475712921600 为未知类型消息 type:reward
+抓取《公务员考试怎么考到 145》抓取631/631 
+export to ../download\公务员考试怎么考到 145_耕耘_865554267287719936\公务员考试怎么考到 145_耕耘_100.ogg
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+cookies update failed!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+how lucky no verify code!
+cookies update failed!
+init success! live_id:[927610618117259264] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018，如何用医学做更好的保障？》[type:audio],评分：[4.5],id:[927610618117259264], 作者:特仑苏
+抓取live总条数失败！live id :927610618117259264 状态码：401
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+login check failed [401]
+cookies update failed!
+login check failed [401]
+cookies update failed!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+no cookies file found! start to Login by username and password
+how lucky no verify code!
+login check failed [401]
+cookies update failed!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update successfully
+cookies saved successfully!
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update successfully
+cookies saved successfully!
+no cookies file found! start to Login by username and password
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[933668753932181504] save_path:[D:\ZhiHuLive\֪��live\download]
+cookies update successfully
+cookies saved successfully!
+共要抓取3个live, 当前正要抓取第 1/3个
+init success! live_id:[855079191442526208] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《体制内新人应学会的生存本领》[type:audio],评分：[5.0],id:[855079191442526208], 作者:你一直在玩儿
+开始抓取：855079191442526208
+抓取《体制内新人应学会的生存本领》抓取30/169 
+抓取《体制内新人应学会的生存本领》抓取60/169 
+抓取《体制内新人应学会的生存本领》抓取90/169 
+抓取《体制内新人应学会的生存本领》抓取120/169 
+抓取《体制内新人应学会的生存本领》抓取150/169 
+item id:864230216187400192 为未知类型消息 type:reward
+抓取《体制内新人应学会的生存本领》抓取169/169 
+export to ../download\体制内新人应学会的生存本领_你一直在玩儿_855079191442526208\体制内新人应学会的生存本领_你一直在玩儿_94.ogg
+第 1/3个 操作完成
+共要抓取3个live, 当前正要抓取第 2/3个
+init success! live_id:[871682858878664704] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《体制内新人应学会的做事之道》[type:audio],评分：[5.0],id:[871682858878664704], 作者:你一直在玩儿
+开始抓取：871682858878664704
+抓取《体制内新人应学会的做事之道》抓取30/88 
+抓取《体制内新人应学会的做事之道》抓取60/88 
+抓取《体制内新人应学会的做事之道》抓取88/88 
+export to ../download\体制内新人应学会的做事之道_你一直在玩儿_871682858878664704\体制内新人应学会的做事之道_你一直在玩儿_63.ogg
+第 2/3个 操作完成
+共要抓取3个live, 当前正要抓取第 3/3个
+init success! live_id:[849951526419075072] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《体制内新人应学会的说话艺术》[type:audio],评分：[5.0],id:[849951526419075072], 作者:你一直在玩儿
+开始抓取：849951526419075072
+抓取《体制内新人应学会的说话艺术》抓取30/276 
+抓取《体制内新人应学会的说话艺术》抓取60/276 
+抓取《体制内新人应学会的说话艺术》抓取90/276 
+抓取《体制内新人应学会的说话艺术》抓取120/276 
+抓取《体制内新人应学会的说话艺术》抓取150/276 
+抓取《体制内新人应学会的说话艺术》抓取180/276 
+抓取《体制内新人应学会的说话艺术》抓取210/276 
+抓取《体制内新人应学会的说话艺术》抓取240/276 
+抓取《体制内新人应学会的说话艺术》抓取270/276 
+抓取《体制内新人应学会的说话艺术》抓取276/276 
+export to ../download\体制内新人应学会的说话艺术_你一直在玩儿_849951526419075072\体制内新人应学会的说话艺术_你一直在玩儿_98.ogg
+第 3/3个 操作完成
+cookies update successfully
+cookies saved successfully!
+init success! live_id:[903592574537838592] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《汽车软件工程师的多种职业发展方向》[type:audio],评分：[5.0],id:[903592574537838592], 作者:一个kebab
+开始抓取：903592574537838592
+抓取《汽车软件工程师的多种职业发展方向》抓取30/112 
+抓取《汽车软件工程师的多种职业发展方向》抓取60/112 
+抓取《汽车软件工程师的多种职业发展方向》抓取90/112 
+抓取《汽车软件工程师的多种职业发展方向》抓取112/112 
+export to ../download\汽车软件工程师的多种职业发展方向_一个kebab_903592574537838592\汽车软件工程师的多种职业发展方向_一个kebab_61.ogg
+cookies update successfully
+cookies saved successfully!
+共要抓取3个live, 当前正要抓取第 1/3个
+init success! live_id:[912339158498959360] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《高考作文：写出逻辑和深度》[type:audio],评分：[5.0],id:[912339158498959360], 作者:陈白丁
+开始抓取：912339158498959360
+抓取《高考作文：写出逻辑和深度》抓取30/134 
+抓取《高考作文：写出逻辑和深度》抓取60/134 
+抓取《高考作文：写出逻辑和深度》抓取90/134 
+抓取《高考作文：写出逻辑和深度》抓取120/134 
+抓取《高考作文：写出逻辑和深度》抓取134/134 
+export to ../download\高考作文：写出逻辑和深度_陈白丁_912339158498959360\高考作文：写出逻辑和深度_陈白丁_54.ogg
+第 1/3个 操作完成
+共要抓取3个live, 当前正要抓取第 2/3个
+init success! live_id:[919515786354237440] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《高效听课：高中数学课堂指南》[type:audio],评分：[5.0],id:[919515786354237440], 作者:Heshawn
+开始抓取：919515786354237440
+抓取《高效听课：高中数学课堂指南》抓取30/132 
+抓取《高效听课：高中数学课堂指南》抓取60/132 
+抓取《高效听课：高中数学课堂指南》抓取90/132 
+抓取《高效听课：高中数学课堂指南》抓取120/132 
+抓取《高效听课：高中数学课堂指南》抓取132/132 
+export to ../download\高效听课：高中数学课堂指南_Heshawn_919515786354237440\高效听课：高中数学课堂指南_Heshawn_85.ogg
+第 2/3个 操作完成
+共要抓取3个live, 当前正要抓取第 3/3个
+init success! live_id:[854004941730246656] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《高手的 7 种思维方式》[type:audio],评分：[4.0],id:[854004941730246656], 作者:刘金凯
+开始抓取：854004941730246656
+抓取《高手的 7 种思维方式》抓取30/61 
+抓取《高手的 7 种思维方式》抓取60/61 
+抓取《高手的 7 种思维方式》抓取61/61 
+export to ../download\高手的 7 种思维方式_刘金凯_854004941730246656\高手的 7 种思维方式_刘金凯_42.ogg
+第 3/3个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取2个live, 当前正要抓取第 1/2个
+init success! live_id:[756215367029772288] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《你不了解的微电子行业》[type:audio],评分：[4.5],id:[756215367029772288], 作者:Forever snow
+开始抓取：756215367029772288
+抓取《你不了解的微电子行业》抓取30/732 
+抓取《你不了解的微电子行业》抓取60/732 
+抓取《你不了解的微电子行业》抓取90/732 
+抓取《你不了解的微电子行业》抓取120/732 
+抓取《你不了解的微电子行业》抓取150/732 
+抓取《你不了解的微电子行业》抓取180/732 
+抓取《你不了解的微电子行业》抓取210/732 
+抓取《你不了解的微电子行业》抓取240/732 
+抓取《你不了解的微电子行业》抓取270/732 
+抓取《你不了解的微电子行业》抓取300/732 
+抓取《你不了解的微电子行业》抓取330/732 
+抓取《你不了解的微电子行业》抓取360/732 
+抓取《你不了解的微电子行业》抓取390/732 
+抓取《你不了解的微电子行业》抓取420/732 
+抓取《你不了解的微电子行业》抓取450/732 
+抓取《你不了解的微电子行业》抓取480/732 
+抓取《你不了解的微电子行业》抓取510/732 
+抓取《你不了解的微电子行业》抓取540/732 
+抓取《你不了解的微电子行业》抓取570/732 
+抓取《你不了解的微电子行业》抓取600/732 
+抓取《你不了解的微电子行业》抓取630/732 
+抓取《你不了解的微电子行业》抓取660/732 
+抓取《你不了解的微电子行业》抓取690/732 
+抓取《你不了解的微电子行业》抓取720/732 
+item id:959043545676341248 为未知类型消息 type:reward
+抓取《你不了解的微电子行业》抓取732/732 
+export to ../download\你不了解的微电子行业_Forever snow_756215367029772288\你不了解的微电子行业_Forever snow_101.ogg
+第 1/2个 操作完成
+共要抓取2个live, 当前正要抓取第 2/2个
+init success! live_id:[851778200035033088] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《数字IC设计职位笔试题分析》[type:audio],评分：[5.0],id:[851778200035033088], 作者:Forever snow
+开始抓取：851778200035033088
+抓取《数字IC设计职位笔试题分析》抓取30/245 
+[xxx][audio]download failed ../download\数字IC设计职位笔试题分析_Forever snow_851778200035033088\Audios
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[851778200035033088] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《数字IC设计职位笔试题分析》[type:audio],评分：[5.0],id:[851778200035033088], 作者:Forever snow
+开始抓取：851778200035033088
+抓取《数字IC设计职位笔试题分析》抓取30/245 
+抓取《数字IC设计职位笔试题分析》抓取60/245 
+抓取《数字IC设计职位笔试题分析》抓取90/245 
+抓取《数字IC设计职位笔试题分析》抓取120/245 
+抓取《数字IC设计职位笔试题分析》抓取150/245 
+抓取《数字IC设计职位笔试题分析》抓取180/245 
+抓取《数字IC设计职位笔试题分析》抓取210/245 
+抓取《数字IC设计职位笔试题分析》抓取240/245 
+抓取《数字IC设计职位笔试题分析》抓取245/245 
+export to ../download\数字IC设计职位笔试题分析_Forever snow_851778200035033088\数字IC设计职位笔试题分析_Forever snow_121.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[851778018358722560] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《Digital IC 设计职位笔试题分析（下）》[type:audio],评分：[5.0],id:[851778018358722560], 作者:Forever snow
+开始抓取：851778018358722560
+抓取《Digital IC 设计职位笔试题分析（下）》抓取30/164 
+抓取《Digital IC 设计职位笔试题分析（下）》抓取60/164 
+抓取《Digital IC 设计职位笔试题分析（下）》抓取90/164 
+抓取《Digital IC 设计职位笔试题分析（下）》抓取120/164 
+抓取《Digital IC 设计职位笔试题分析（下）》抓取150/164 
+抓取《Digital IC 设计职位笔试题分析（下）》抓取164/164 
+export to ../download\Digital IC 设计职位笔试题分析（下）_Forever snow_851778018358722560\Digital IC 设计职位笔试题分析（下）_Forever snow_94.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+抓取《剖宫产还是自己生，这是个问题》抓取60/278 
+抓取《剖宫产还是自己生，这是个问题》抓取90/278 
+抓取《剖宫产还是自己生，这是个问题》抓取120/278 
+抓取《剖宫产还是自己生，这是个问题》抓取150/278 
+抓取《剖宫产还是自己生，这是个问题》抓取180/278 
+抓取《剖宫产还是自己生，这是个问题》抓取210/278 
+抓取《剖宫产还是自己生，这是个问题》抓取240/278 
+抓取《剖宫产还是自己生，这是个问题》抓取270/278 
+抓取《剖宫产还是自己生，这是个问题》抓取278/278 
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+抓取《剖宫产还是自己生，这是个问题》抓取60/278 
+抓取《剖宫产还是自己生，这是个问题》抓取90/278 
+抓取《剖宫产还是自己生，这是个问题》抓取120/278 
+抓取《剖宫产还是自己生，这是个问题》抓取150/278 
+抓取《剖宫产还是自己生，这是个问题》抓取180/278 
+抓取《剖宫产还是自己生，这是个问题》抓取210/278 
+抓取《剖宫产还是自己生，这是个问题》抓取240/278 
+抓取《剖宫产还是自己生，这是个问题》抓取270/278 
+抓取《剖宫产还是自己生，这是个问题》抓取300/278 
+export to ../download\剖宫产还是自己生，这是个问题_田吉顺_757592673308663808\剖宫产还是自己生，这是个问题_田吉顺_177.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+抓取《剖宫产还是自己生，这是个问题》抓取60/278 
+抓取《剖宫产还是自己生，这是个问题》抓取90/278 
+抓取《剖宫产还是自己生，这是个问题》抓取120/278 
+抓取《剖宫产还是自己生，这是个问题》抓取150/278 
+抓取《剖宫产还是自己生，这是个问题》抓取180/278 
+抓取《剖宫产还是自己生，这是个问题》抓取210/278 
+抓取《剖宫产还是自己生，这是个问题》抓取240/278 
+抓取《剖宫产还是自己生，这是个问题》抓取270/278 
+抓取《剖宫产还是自己生，这是个问题》抓取300/278 
+export to ../download\剖宫产还是自己生，这是个问题_田吉顺_757592673308663808\剖宫产还是自己生，这是个问题_田吉顺_177.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+抓取《剖宫产还是自己生，这是个问题》抓取60/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+抓取《剖宫产还是自己生，这是个问题》抓取60/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+抓取《剖宫产还是自己生，这是个问题》抓取60/278 
+抓取《剖宫产还是自己生，这是个问题》抓取90/278 
+抓取《剖宫产还是自己生，这是个问题》抓取120/278 
+抓取《剖宫产还是自己生，这是个问题》抓取150/278 
+抓取《剖宫产还是自己生，这是个问题》抓取180/278 
+抓取《剖宫产还是自己生，这是个问题》抓取210/278 
+抓取《剖宫产还是自己生，这是个问题》抓取240/278 
+抓取《剖宫产还是自己生，这是个问题》抓取270/278 
+抓取《剖宫产还是自己生，这是个问题》抓取278/278 
+export to ../download\剖宫产还是自己生，这是个问题_田吉顺_757592673308663808\剖宫产还是自己生，这是个问题_田吉顺_155.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[757592673308663808] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《剖宫产还是自己生，这是个问题》[type:audio],评分：[4.5],id:[757592673308663808], 作者:田吉顺
+开始抓取：757592673308663808
+抓取《剖宫产还是自己生，这是个问题》抓取30/278 
+抓取《剖宫产还是自己生，这是个问题》抓取60/278 
+抓取《剖宫产还是自己生，这是个问题》抓取90/278 
+抓取《剖宫产还是自己生，这是个问题》抓取120/278 
+抓取《剖宫产还是自己生，这是个问题》抓取150/278 
+抓取《剖宫产还是自己生，这是个问题》抓取180/278 
+抓取《剖宫产还是自己生，这是个问题》抓取210/278 
+抓取《剖宫产还是自己生，这是个问题》抓取240/278 
+抓取《剖宫产还是自己生，这是个问题》抓取270/278 
+抓取《剖宫产还是自己生，这是个问题》抓取278/278 
+export to ../download\剖宫产还是自己生，这是个问题_田吉顺_757592673308663808\剖宫产还是自己生，这是个问题_田吉顺_155.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取2个live, 当前正要抓取第 1/2个
+init success! live_id:[805893443007164416] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《隐形牙齿矫正指南》[type:audio],评分：[5.0],id:[805893443007164416], 作者:Edwin
+开始抓取：805893443007164416
+抓取《隐形牙齿矫正指南》抓取30/253 
+抓取《隐形牙齿矫正指南》抓取60/253 
+item id:815293978743300096 为未知类型消息 type:reward
+抓取《隐形牙齿矫正指南》抓取90/253 
+item id:815302947410972672 为未知类型消息 type:reward
+item id:815305814154842112 为未知类型消息 type:reward
+抓取《隐形牙齿矫正指南》抓取120/253 
+抓取《隐形牙齿矫正指南》抓取150/253 
+item id:815322082316517376 为未知类型消息 type:reward
+抓取《隐形牙齿矫正指南》抓取180/253 
+抓取《隐形牙齿矫正指南》抓取210/253 
+抓取《隐形牙齿矫正指南》抓取240/253 
+抓取《隐形牙齿矫正指南》抓取253/253 
+export to ../download\隐形牙齿矫正指南_Edwin_805893443007164416\隐形牙齿矫正指南_Edwin_138.ogg
+第 1/2个 操作完成
+共要抓取2个live, 当前正要抓取第 2/2个
+init success! live_id:[877914485057290240] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《牙齿矫正常见病例治疗讲解》[type:audio],评分：[5.0],id:[877914485057290240], 作者:Edwin
+开始抓取：877914485057290240
+抓取《牙齿矫正常见病例治疗讲解》抓取30/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取60/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取90/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取120/217 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[877914485057290240] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《牙齿矫正常见病例治疗讲解》[type:audio],评分：[5.0],id:[877914485057290240], 作者:Edwin
+开始抓取：877914485057290240
+抓取《牙齿矫正常见病例治疗讲解》抓取30/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取60/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取90/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取120/217 
+item id:885604971075223552 为未知类型消息 type:reward
+抓取《牙齿矫正常见病例治疗讲解》抓取150/217 
+item id:885610198880882688 为未知类型消息 type:reward
+抓取《牙齿矫正常见病例治疗讲解》抓取180/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取210/217 
+抓取《牙齿矫正常见病例治疗讲解》抓取217/217 
+export to ../download\牙齿矫正常见病例治疗讲解_Edwin_877914485057290240\牙齿矫正常见病例治疗讲解_Edwin_121.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[896035734589427712] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《不刷单 淘宝新店怎么推广又快又好》[type:audio],评分：[4.5],id:[896035734589427712], 作者:水木知秋
+开始抓取：896035734589427712
+抓取《不刷单 淘宝新店怎么推广又快又好》抓取30/175 
+抓取《不刷单 淘宝新店怎么推广又快又好》抓取60/175 
+抓取《不刷单 淘宝新店怎么推广又快又好》抓取90/175 
+抓取《不刷单 淘宝新店怎么推广又快又好》抓取120/175 
+抓取《不刷单 淘宝新店怎么推广又快又好》抓取150/175 
+抓取《不刷单 淘宝新店怎么推广又快又好》抓取175/175 
+export to ../download\不刷单 淘宝新店怎么推广又快又好_水木知秋_896035734589427712\不刷单 淘宝新店怎么推广又快又好_水木知秋_98.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[908294795791831040] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《高三刷题经验分享——如何高效刷题？》[type:audio],评分：[4.5],id:[908294795791831040], 作者:许涵仁
+开始抓取：908294795791831040
+抓取《高三刷题经验分享——如何高效刷题？》抓取30/126 
+抓取《高三刷题经验分享——如何高效刷题？》抓取60/126 
+抓取《高三刷题经验分享——如何高效刷题？》抓取90/126 
+抓取《高三刷题经验分享——如何高效刷题？》抓取120/126 
+抓取《高三刷题经验分享——如何高效刷题？》抓取126/126 
+export to ../download\高三刷题经验分享——如何高效刷题？_许涵仁_908294795791831040\高三刷题经验分享——如何高效刷题？_许涵仁_92.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[845652786015264768] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2017雅思网络课程全攻略》[type:audio],评分：[5.0],id:[845652786015264768], 作者:穆纛雠
+开始抓取：845652786015264768
+抓取《2017雅思网络课程全攻略》抓取30/216 
+抓取《2017雅思网络课程全攻略》抓取60/216 
+抓取《2017雅思网络课程全攻略》抓取90/216 
+抓取《2017雅思网络课程全攻略》抓取120/216 
+抓取《2017雅思网络课程全攻略》抓取150/216 
+抓取《2017雅思网络课程全攻略》抓取180/216 
+抓取《2017雅思网络课程全攻略》抓取210/216 
+item id:855576515302264832 为未知类型消息 type:reward
+item id:889607835250470912 为未知类型消息 type:reward
+抓取《2017雅思网络课程全攻略》抓取216/216 
+export to ../download\2017雅思网络课程全攻略_穆纛雠_845652786015264768\2017雅思网络课程全攻略_穆纛雠_116.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[761166982425878528] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《关于自控和承诺的行为经济学》[type:audio],评分：[4.5],id:[761166982425878528], 作者:陈茁
+开始抓取：761166982425878528
+抓取《关于自控和承诺的行为经济学》抓取30/280 
+抓取《关于自控和承诺的行为经济学》抓取60/280 
+抓取《关于自控和承诺的行为经济学》抓取90/280 
+抓取《关于自控和承诺的行为经济学》抓取120/280 
+抓取《关于自控和承诺的行为经济学》抓取150/280 
+抓取《关于自控和承诺的行为经济学》抓取180/280 
+抓取《关于自控和承诺的行为经济学》抓取210/280 
+抓取《关于自控和承诺的行为经济学》抓取240/280 
+抓取《关于自控和承诺的行为经济学》抓取270/280 
+抓取《关于自控和承诺的行为经济学》抓取280/280 
+export to ../download\关于自控和承诺的行为经济学_陈茁_761166982425878528\关于自控和承诺的行为经济学_陈茁_84.ogg
+第 1/1个 操作完成
+no cookies file found! start to Login by username and password
+4s left to fill in the verify code befor login
+3s left to fill in the verify code befor login
+2s left to fill in the verify code befor login
+1s left to fill in the verify code befor login
+0s left to fill in the verify code befor login
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[880463398117208064] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《生信进阶第2课-基因组序列》[type:audio],评分：[5.0],id:[880463398117208064], 作者:孟浩巍
+开始抓取：880463398117208064
+抓取《生信进阶第2课-基因组序列》抓取30/244 
+抓取《生信进阶第2课-基因组序列》抓取60/244 
+抓取《生信进阶第2课-基因组序列》抓取90/244 
+抓取《生信进阶第2课-基因组序列》抓取120/244 
+抓取《生信进阶第2课-基因组序列》抓取150/244 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+[xxx][audio]download failed ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\Audios
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+[xxx][audio]download failed ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\Audios
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+抓取《2018数学建模美赛备战攻略》抓取30/278 
+抓取《2018数学建模美赛备战攻略》抓取60/278 
+抓取《2018数学建模美赛备战攻略》抓取90/278 
+抓取《2018数学建模美赛备战攻略》抓取120/278 
+抓取《2018数学建模美赛备战攻略》抓取150/278 
+抓取《2018数学建模美赛备战攻略》抓取180/278 
+抓取《2018数学建模美赛备战攻略》抓取210/278 
+抓取《2018数学建模美赛备战攻略》抓取240/278 
+抓取《2018数学建模美赛备战攻略》抓取270/278 
+抓取《2018数学建模美赛备战攻略》抓取278/278 
+export to ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\2018数学建模美赛备战攻略_数学建模老司机_155.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+抓取《2018数学建模美赛备战攻略》抓取30/278 
+抓取《2018数学建模美赛备战攻略》抓取60/278 
+抓取《2018数学建模美赛备战攻略》抓取90/278 
+抓取《2018数学建模美赛备战攻略》抓取120/278 
+抓取《2018数学建模美赛备战攻略》抓取150/278 
+抓取《2018数学建模美赛备战攻略》抓取180/278 
+抓取《2018数学建模美赛备战攻略》抓取210/278 
+抓取《2018数学建模美赛备战攻略》抓取240/278 
+抓取《2018数学建模美赛备战攻略》抓取270/278 
+抓取《2018数学建模美赛备战攻略》抓取278/278 
+export to ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\2018数学建模美赛备战攻略_数学建模老司机_155.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+[xxx][audio]download failed ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\Audios
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+抓取《2018数学建模美赛备战攻略》抓取30/278 
+抓取《2018数学建模美赛备战攻略》抓取60/278 
+抓取《2018数学建模美赛备战攻略》抓取90/278 
+抓取《2018数学建模美赛备战攻略》抓取120/278 
+抓取《2018数学建模美赛备战攻略》抓取150/278 
+抓取《2018数学建模美赛备战攻略》抓取180/278 
+抓取《2018数学建模美赛备战攻略》抓取210/278 
+抓取《2018数学建模美赛备战攻略》抓取240/278 
+抓取《2018数学建模美赛备战攻略》抓取270/278 
+抓取《2018数学建模美赛备战攻略》抓取278/278 
+export to ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\2018数学建模美赛备战攻略_数学建模老司机_155.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+[xxx][audio]download failed ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\Audios
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+抓取《2018数学建模美赛备战攻略》抓取30/278 
+抓取《2018数学建模美赛备战攻略》抓取60/278 
+抓取《2018数学建模美赛备战攻略》抓取90/278 
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+抓取《2018数学建模美赛备战攻略》抓取30/278 
+抓取《2018数学建模美赛备战攻略》抓取60/278 
+抓取《2018数学建模美赛备战攻略》抓取90/278 
+抓取《2018数学建模美赛备战攻略》抓取120/278 
+抓取《2018数学建模美赛备战攻略》抓取150/278 
+抓取《2018数学建模美赛备战攻略》抓取180/278 
+抓取《2018数学建模美赛备战攻略》抓取210/278 
+抓取《2018数学建模美赛备战攻略》抓取240/278 
+抓取《2018数学建模美赛备战攻略》抓取270/278 
+抓取《2018数学建模美赛备战攻略》抓取278/278 
+export to ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\2018数学建模美赛备战攻略_数学建模老司机_155.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+抓取《2018数学建模美赛备战攻略》抓取30/278 
+抓取《2018数学建模美赛备战攻略》抓取60/278 
+抓取《2018数学建模美赛备战攻略》抓取90/278 
+抓取《2018数学建模美赛备战攻略》抓取120/278 
+抓取《2018数学建模美赛备战攻略》抓取150/278 
+抓取《2018数学建模美赛备战攻略》抓取180/278 
+抓取《2018数学建模美赛备战攻略》抓取210/278 
+抓取《2018数学建模美赛备战攻略》抓取240/278 
+抓取《2018数学建模美赛备战攻略》抓取270/278 
+抓取《2018数学建模美赛备战攻略》抓取278/278 
+export to ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\2018数学建模美赛备战攻略_数学建模老司机_155.ogg
+第 1/1个 操作完成
+cookies update successfully
+cookies saved successfully!
+共要抓取1个live, 当前正要抓取第 1/1个
+init success! live_id:[924677414355890176] save_path:[D:\ZhiHuLive\֪��live\download]
+当前正在抓取的live:《2018数学建模美赛备战攻略》[type:audio],评分：[5.0],id:[924677414355890176], 作者:数学建模老司机
+开始抓取：924677414355890176
+抓取《2018数学建模美赛备战攻略》抓取30/278 
+抓取《2018数学建模美赛备战攻略》抓取60/278 
+抓取《2018数学建模美赛备战攻略》抓取90/278 
+抓取《2018数学建模美赛备战攻略》抓取120/278 
+抓取《2018数学建模美赛备战攻略》抓取150/278 
+抓取《2018数学建模美赛备战攻略》抓取180/278 
+抓取《2018数学建模美赛备战攻略》抓取210/278 
+抓取《2018数学建模美赛备战攻略》抓取240/278 
+抓取《2018数学建模美赛备战攻略》抓取270/278 
+抓取《2018数学建模美赛备战攻略》抓取278/278 
+export to ../download\2018数学建模美赛备战攻略_数学建模老司机_924677414355890176\2018数学建模美赛备战攻略_数学建模老司机_155.ogg
+第 1/1个 操作完成
