@@ -20,8 +20,8 @@ sys.setdefaultencoding('utf-8')
 	#audio file init
 
 ZHIHU_URL				=	"https://www.zhihu.com"
-UESR_NAME 				=	"806404381@qq.com";
-PASSWORD  				=	"bh123456";
+UESR_NAME 				=	"guansuo2018@163.com";
+PASSWORD  				=	"kc80241546";
 HEADER	  				=	{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'};
 CHROME_DRIVER_PATH 		=	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
 PHANTOMJS_DRIVER_PATH	=	"C:\\Program Files (x86)\\phantomjs\\phantomjs.exe";
@@ -31,13 +31,12 @@ LOG_FORMAT				=	"[%(asctime)s] [%(levelname)-7s] - %(message)s"
 LOGIN_STATUS			=	False;
 TRY_TIMES				=	2;
 SPATH 					=	"../download";
-LOGLEVEL 				=	logging.INFO;
+LOGLEVEL 				=	logging.DEBUG;
 S_SESSION				=	requests.Session();	#session
 
-handler = logging.FileHandler("log.txt")
+
+logging.basicConfig(level=logging.WARNING, format=LOG_FORMAT);
 L = logging.getLogger(__name__);
-L.addHandler(handler);
-	
 
 ##############################################
 #需要配置如下参数
@@ -73,6 +72,7 @@ def setconfig( **kw):
 	return True;
 
 def audio_init(file):
+	print file
 	return AudioSegment.from_file(file);
 
 
@@ -127,11 +127,12 @@ def getElement(driver, xpath):
 		return None;
 
 def download(url,dir,name=None):
-
-    if name == None:
-        defaultName = datetime.datetime.now().strftime('%H:%M:%S');
-    else:
-        defaultName = name;
+	print url
+	time.sleep(1);
+	if name == None:
+		defaultName = datetime.datetime.now().strftime('%H:%M:%S');
+	else:
+		defaultName = name;
 
 	try:
 		if os.path.exists(dir):
@@ -168,7 +169,7 @@ def curl(url):
 
 
 
-	######################## -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- ################################
+	######################## -_- 💡-_- -_- -_- -_- -_- -_- -_- -_- -_- -_- -_- ################################
 
 
 
@@ -319,20 +320,40 @@ class sijiake:
 		data_json_text 	= 	r.text;
 		data_obj		=	json.loads(data_json_text);
 
-		sjk_name  =		data_obj['title'];
+		sjk_name   =	data_obj['title'];
+		sjk_author =	data_obj["author"]["user"]["name"];
+
+		dir_name = "%s_%s_%d" % (sjk_name, sjk_author, self.id);
+
+		dir_level_1 = os.path.join(self.save_path, dir_name)
+		if not os.path.exists(dir_level_1):
+			os.makedirs(dir_level_1);
 
 		for a in data_obj['tracks']:
 			name = "%d_%s" % (a['index'], a['title']);
 			name = name.replace('|','｜');
 			name = name.replace(':','：');
+			name = name.replace('💡','#');
 			audio_url  = a['audio']['url'];
+			content_id = a["id"];
+			print name;
 
-			print a['index'];	
-			print a['title'];
-			print audio_url;
+			dir_level_2 = os.path.join(dir_level_1, name);
+			if not os.path.exists(dir_level_1):
+				os.makedirs(dir_level_2);
+
 			if audio_url:
-				download(audio_url, "../download/%s" % sjk_name, "%s.m4a" % name);
+				download(audio_url, dir_level_2, "%s.m4a" % name);
 
+			content_url = "https://api.zhihu.com/remix/albums/%d/tracks/%d/content" % (self.id, int(content_id))
+			rr = S_SESSION.get(content_url, headers = HEADER);
+			rr_t 	= 	rr.text;
+			rr_obj		=	json.loads(rr_t);
+			content = rr_obj["description"];
+
+			name_level_3 = os.path.join(dir_level_2, "%s.html" % name);
+			with open(name_level_3,"w") as f:
+				f.write(content);
 
 class zhihulive:
 
@@ -396,10 +417,14 @@ class zhihulive:
 			else:
 				live_obj	 = json.loads(live_json);
 
-
+			self.starts_at = live_obj['starts_at'];
 			self.author = live_obj['speaker']['member']['name'];
 			self.score = live_obj['feedback_score'];
-			self.title = live_obj['subject'].replace('/','_');
+			self.title = live_obj['subject'].replace('/','_').replace(':','').replace('|','');
+			self.title  =  self.title.replace('?','').replace(':','').replace('>','');
+			self.title  =  self.title.replace('💡','').replace('|','').replace('？','');
+			# self.title = "%d" % self.live_id;
+
 			self.live_type = live_obj['live_type']
 			if os.path.exists("./record/"):
 				pass;
@@ -409,6 +434,7 @@ class zhihulive:
 			self.confpaser.add_section('config')
 			self.confpaser.set('config',"title",self.title);
 			self.confpaser.set('config',"author",self.author);
+			self.confpaser.set('config',"startsat",self.starts_at);
 			self.confpaser.set('config',"score",self.score);
 			self.confpaser.set('config',"id",self.live_id);
 			self.confpaser.set('config',"livetype",self.live_type);
@@ -421,10 +447,16 @@ class zhihulive:
 			self.author = self.confpaser.get("config", "author").decode('utf-8');
 			self.score = self.confpaser.get("config", "score");
 			self.live_type = self.confpaser.get("config", "livetype");
+			self.starts_at = self.confpaser.get("config", "startsat");
 
 		if self.live_type == "video":
 			L.error("%s %d为视屏live  !!跳过!!" % (self.title, self.live_id));
 			return None;
+
+
+		# if self.starts_at > int(time.time()):
+		# 	L.error("%s %d还没有开始  !!跳过!!" % (self.title, self.live_id));
+		# 	return None;
 
 
 		# live_dir_name 	= "%s_%s_%s_%d" % (title, score,author, self.live_id)
@@ -437,7 +469,6 @@ class zhihulive:
 			L.debug("目录[%s]已经存在！" % (self.target_dir ));
 		else:
 			try:
-
 				os.makedirs(self.target_dir );
 				for k,v in self.tpath.items():
 					path = os.path.join(self.target_dir, v[0]);
@@ -803,7 +834,7 @@ def doit(liveids, type):
 		getlive_type1(liveids);
 		getlive_type2();
 	elif type == 6:
-		s = sijiake(liveids, "./zhihusijiake");
+		s = sijiake(liveids, "..\\download2");
 		s.go();
 	else:
 		L.error("未知操作类型%d" % type);

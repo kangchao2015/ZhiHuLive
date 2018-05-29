@@ -17,8 +17,8 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 ZHIHU_URL = "https://www.zhihu.com"
-UESR_NAME = "jushou2018@163.com"
-PASSWORD = "20140619fgt"
+UESR_NAME = "guansuo2018@163.com"
+PASSWORD = "liuguanzhang2018"
 HEADER = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'};
 CHROME_DRIVER_PATH = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
@@ -216,7 +216,7 @@ class zhihulive:
         self.driver.get(ZHIHU_URL);
         L.info("titile is %s", self.driver.title);
 
-        bt_login = self.driver.find_element_by_xpath("//span[@data-reactid='93']");
+        bt_login = self.driver.find_element_by_xpath("//div[@class='SignContainer-switch']/span");
         bt_login.click();
 
     def step3(self):

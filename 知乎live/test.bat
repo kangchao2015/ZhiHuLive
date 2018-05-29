@@ -1,5 +1,7 @@
 @echo off
 
+set ZIPFILE="C:\Program Files\2345Soft\HaoZip\HaoZipC.exe"
+
 set SRCPATH1=D:\ZhiHuLive\知乎live\download
 set SRCPATH2=D:\ZhiHuLive\知乎live\download2
 set DESPATH1=D:\ZhiHuLive\知乎live\zip
@@ -17,7 +19,7 @@ set count = 0
 		if EXIST %SRCPATH1%\%%i (
 			if EXIST %SRCPATH1%\%%i\done_tag (
 				if not EXIST "%DESPATH1%\%%i.zip" (
-					haozipc a -tzip "%DESPATH1%\%%i.zip" "%SRCPATH1%\%%i"
+					%ZIPFILE% a -tzip "%DESPATH1%\%%i.zip" "%SRCPATH1%\%%i"
 				)
 				rd /s /Q "%SRCPATH1%\%%i"
 			)
@@ -31,7 +33,7 @@ set count = 0
 		if EXIST %SRCPATH2%\%%i (
 			if EXIST %SRCPATH2%\%%i\done_tag (
 				if not EXIST "%DESPATH2%\%%i.zip" (
-					haozipc a -tzip "%DESPATH2%\%%i.zip" "%SRCPATH2%\%%i"
+					%ZIPFILE% a -tzip "%DESPATH2%\%%i.zip" "%SRCPATH2%\%%i"
 				)
 				rd /s /Q "%SRCPATH2%\%%i"
 			)
@@ -42,6 +44,6 @@ set count = 0
 	
 	
 	echo 完成%count%次扫描 60秒后开始下一次扫描
-	ping -n 60 127.0.0.1>nul
+	ping -n 6 127.0.0.1>nul
 
 goto start
