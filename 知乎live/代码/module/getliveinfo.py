@@ -13,6 +13,8 @@ import urllib2;
 import ConfigParser
 import traceback
 from lxml import etree
+
+from ffmpy import FFmpeg
 from pydub import AudioSegment
 
 reload(sys)
@@ -21,7 +23,9 @@ sys.setdefaultencoding('utf-8')
 
 ZHIHU_URL				=	"https://www.zhihu.com"
 UESR_NAME 				=	"guansuo2018@163.com";
-PASSWORD  				=	"kc80241546";
+PASSWORD  				=	"liuguanzhang2018";
+# UESR_NAME 				=	"jushou2018@163.com";
+# PASSWORD  				=	"20140619ftg";
 HEADER	  				=	{'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'};
 CHROME_DRIVER_PATH 		=	"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe";
 PHANTOMJS_DRIVER_PATH	=	"C:\\Program Files (x86)\\phantomjs\\phantomjs.exe";
@@ -128,7 +132,6 @@ def getElement(driver, xpath):
 
 def download(url,dir,name=None):
 	print url
-	time.sleep(1);
 	if name == None:
 		defaultName = datetime.datetime.now().strftime('%H:%M:%S');
 	else:
@@ -140,6 +143,7 @@ def download(url,dir,name=None):
 		else:
 			os.makedirs(dir);
 		path = os.path.join(dir, defaultName); 
+		# print path;
 		urllib.urlretrieve(url, path);
 		return True;
 	except Exception as e:
@@ -274,8 +278,7 @@ class login():
 					self.cookie[items['name']] = items['value'];
 					set_cookie.remove(items['name']);
 				else:
-					print "cookie %s not in the cookie_list";
-					sys.exit(1);
+					print "cookie %s not in the cookie_list \r\n" % items;
 
 			for cookie_key in set_cookie:
 				val = raw_input("please input %s:" % cookie_key);
@@ -303,6 +306,7 @@ class login():
 			sys.exit(1);
 
 
+
 class sijiake:
 	def __init__(self,sjk_id,save_path):
 		self.id = sjk_id;
@@ -314,13 +318,23 @@ class sijiake:
 		else:
 			os.makedirs(self.save_path);
 
+	def execCmd(cmd):
+	    """
+	    执行计算命令时间
+	    """
+	    r = os.popen(cmd)
+	    text = r.read().strip()
+	    r.close()
+	    return text
+
 	def go(self):
+		print self.url;
 		r = S_SESSION.get(self.url, headers = HEADER);
 
 		data_json_text 	= 	r.text;
 		data_obj		=	json.loads(data_json_text);
 
-		sjk_name   =	data_obj['title'];
+		sjk_name   =	data_obj['title'].replace(':','');
 		sjk_author =	data_obj["author"]["user"]["name"];
 
 		dir_name = "%s_%s_%d" % (sjk_name, sjk_author, self.id);
@@ -329,31 +343,56 @@ class sijiake:
 		if not os.path.exists(dir_level_1):
 			os.makedirs(dir_level_1);
 
-		for a in data_obj['tracks']:
-			name = "%d_%s" % (a['index'], a['title']);
-			name = name.replace('|','｜');
-			name = name.replace(':','：');
-			name = name.replace('💡','#');
-			audio_url  = a['audio']['url'];
-			content_id = a["id"];
-			print name;
+		if data_obj['media_type'] == "video":
 
-			dir_level_2 = os.path.join(dir_level_1, name);
-			if not os.path.exists(dir_level_1):
-				os.makedirs(dir_level_2);
+			for a in data_obj["album_video_chapters"]:
+				dir_level_2  = os.path.join(dir_level_1, "%d_%s" % (a["chapter_index"], a["title"]));
+				if not os.path.exists(dir_level_2):
+					os.makedirs(dir_level_2);
 
-			if audio_url:
-				download(audio_url, dir_level_2, "%s.m4a" % name);
 
-			content_url = "https://api.zhihu.com/remix/albums/%d/tracks/%d/content" % (self.id, int(content_id))
-			rr = S_SESSION.get(content_url, headers = HEADER);
-			rr_t 	= 	rr.text;
-			rr_obj		=	json.loads(rr_t);
-			content = rr_obj["description"];
+				for b  in a["videos"]:
+					url  = b["playlist_info"]["hd"]["url"];
+					name = "%s_%s" % (b["video_index"] ,b["title"]);
+					cmd = "ffmpeg -i \"%s\" -c copy \"%s.mp4\"" % (url ,os.path.join(dir_level_2,name))
+					print cmd;
+					# self.execCmd(cmd);
 
-			name_level_3 = os.path.join(dir_level_2, "%s.html" % name);
-			with open(name_level_3,"w") as f:
-				f.write(content);
+		else:
+
+			for a in data_obj['tracks']:
+				name = "%d_%s" % (a['index'], a['title']);
+				name = name.replace('|','｜');
+				name = name.replace(':','：').replace('?','？');
+				name = name.replace('💡','#').strip();
+				audio_url  = a['audio']['url'];
+				content_id = a["id"];
+				print name;
+				
+				dir_level_2 = os.path.join(dir_level_1, name);
+				if not os.path.exists(dir_level_1):
+					os.makedirs(dir_level_2);
+
+				try:
+					if audio_url:
+						path_2 = os.path.join(dir_level_2, "%s.m4a" % name);
+						if not os.path.exists(path_2):
+							download(audio_url, dir_level_2, "%s.m4a" % name);
+						else:
+							print path_2;
+					content_url = "https://api.zhihu.com/remix/albums/%d/tracks/%d/content" % (self.id, int(content_id))
+					rr = S_SESSION.get(content_url, headers = HEADER);
+					rr_t 	= 	rr.text;
+					rr_obj		=	json.loads(rr_t);
+					content = rr_obj["description"];
+
+					name_level_3 = os.path.join(dir_level_2, "%s.html" % name);
+					with open(name_level_3,"w") as f:
+						f.write(content);
+
+				except Exception as e:
+					print name;
+
 
 class zhihulive:
 
@@ -449,9 +488,7 @@ class zhihulive:
 			self.live_type = self.confpaser.get("config", "livetype");
 			self.starts_at = self.confpaser.get("config", "startsat");
 
-		if self.live_type == "video":
-			L.error("%s %d为视屏live  !!跳过!!" % (self.title, self.live_id));
-			return None;
+
 
 
 		# if self.starts_at > int(time.time()):
@@ -482,6 +519,38 @@ class zhihulive:
 				L.error("目录[%s]创建失败！" % (self.target_dir ));
 				print e;
 				return False;
+
+		if self.live_type == "video":
+			live_api_url = "https://api.zhihu.com/lives/%d" % self.live_id;
+			r = S_SESSION.get(live_api_url, headers = HEADER);
+
+			if r.status_code == 200:
+				data_json_text 	= 	r.text;
+				data_obj		=	json.loads(data_json_text);
+
+				index = 1;
+				for a in data_obj["video"]["video_tapes"]:
+					m3u8 =  a['hls_video_url'];
+					cmd = "ffmpeg -i \"%s\" -c copy \"%s.mp4\"" % (m3u8 ,os.path.join(self.target_dir, "%d" % index))
+					print cmd;
+					index += 1;
+
+
+			else:
+				if r.status_code == 403:
+					L.warning("您没有权限收听《%s》" % self.title);
+				else:
+					L.error("抓取live总条数失败！live id :%d 状态码：%d" % (self.live_id, r.status_code));
+				return False;	
+
+
+
+
+			L.error("%s %d为视屏live  !!跳过!!" % (self.title, self.live_id));
+			# sys.exit();
+			return None;
+
+
 
 		L.info("当前正在抓取的live:《%s》[type:%s],评分：[%s],id:[%d], 作者:%s" % (self.title, self.live_type,self.score,self.live_id, self.author));
 		return True;
@@ -830,11 +899,14 @@ def doit(liveids, type):
 		getlive_type2();
 
 	## 两者都抓取
-	elif type == 3:
+	elif type == 3:		#
 		getlive_type1(liveids);
 		getlive_type2();
-	elif type == 6:
+	elif type == 6:		#audio sijiake
 		s = sijiake(liveids, "..\\download2");
+		s.go();
+	elif type == 7:		#vidoe sijiake
+		s = videoSijiake(liveids, "..\\download2");
 		s.go();
 	else:
 		L.error("未知操作类型%d" % type);

@@ -15,13 +15,10 @@ from lxml import etree
 reload(sys) 
 sys.setdefaultencoding('utf-8')
 
-DEST_DIR = "G:\\download\\";
+DEST_DIR = "D:\\ZhiHuLive\\知乎live\\zip";
 
 
 a = [x for x in os.listdir(DEST_DIR)];
 
 for z in a:
-	cat_name = z;
-	cat_path = os.path.join(DEST_DIR, cat_name);
-	# print cat_path;
-	b = [x for x in os.listdir(cat_path)];
+	print a;

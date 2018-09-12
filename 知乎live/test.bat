@@ -4,8 +4,8 @@ set ZIPFILE="C:\Program Files\2345Soft\HaoZip\HaoZipC.exe"
 
 set SRCPATH1=D:\ZhiHuLive\知乎live\download
 set SRCPATH2=D:\ZhiHuLive\知乎live\download2
-set DESPATH1=D:\ZhiHuLive\知乎live\zip
-set DESPATH2=D:\ZhiHuLive\知乎live\zip2
+set DESPATH1=G:\1_知乎\知乎live
+set DESPATH2=G:\1_知乎\知乎私家课
 
 set count = 0
 
@@ -31,12 +31,10 @@ set count = 0
 
 
 		if EXIST %SRCPATH2%\%%i (
-			if EXIST %SRCPATH2%\%%i\done_tag (
 				if not EXIST "%DESPATH2%\%%i.zip" (
 					%ZIPFILE% a -tzip "%DESPATH2%\%%i.zip" "%SRCPATH2%\%%i"
 				)
 				rd /s /Q "%SRCPATH2%\%%i"
-			)
 		)
 	)
 

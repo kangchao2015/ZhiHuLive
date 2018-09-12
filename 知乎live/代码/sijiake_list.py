@@ -11,7 +11,7 @@ import urllib;
 import urllib2;
 import ConfigParser
 import mysql.connector
-import getliveinfo
+import getliveinfo as glive;
 from lxml import etree
 
 reload(sys) 
@@ -235,7 +235,9 @@ def get_cat_list():
 
 		for a in info['data']:
 			count += 1;
-			dealsijiakeinfo(a["id"]);
+			# dealsijiakeinfo(a["id"]);
+			glive.doit(int(a["id"]),6);
+
 
 
 

@@ -1,0 +1,2 @@
+ffmpeg -i "http://live-videoreplay.vzuu.com/304a9190vodgzp1253536888/5ceea97b4564972818896193606/playlist.m3u8" -c copy ../download\西餐课程：早午餐王本尼迪克蛋_会飞的黄油_899651236708642816\1.mp4
+ffmpeg -i "http://live-videoreplay.vzuu.com/304a9190vodgzp1253536888/5a0b843e4564972818896018883/playlist.m3u8" -c copy ../download\西餐课程：早午餐王本尼迪克蛋_会飞的黄油_899651236708642816\2.mp4
